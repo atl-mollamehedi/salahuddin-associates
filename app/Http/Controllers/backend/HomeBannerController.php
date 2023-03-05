@@ -47,7 +47,7 @@ class HomeBannerController extends Controller
             $imageName = time() . '.' . $image->extension();
             $image_path = public_path('uploads/banner/slider/');
             $img = Image::make($image->path());
-            $img->resize(600, 350)->save($image_path . '/' . $imageName);
+            $img->save($image_path . '/' . $imageName);
             $banner_slier->photo='uploads/banner/slider/'.$imageName;
             $banner_slier->save();
             
@@ -70,7 +70,7 @@ class HomeBannerController extends Controller
             $imageName = time() . '.' . $image->extension();
             $image_path = public_path('uploads/banner/slider/');
             $img = Image::make($image->path());
-            $img->resize(600, 350)->save($image_path . '/' . $imageName);
+            $img->save($image_path . '/' . $imageName);
             $banner_slier->photo='uploads/banner/slider/'.$imageName;
             $banner_slier->save();
         }

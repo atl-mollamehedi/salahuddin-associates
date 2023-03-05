@@ -1,58 +1,25 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="author" content="{{ setting()->meta_author }}">
-    <meta name="keywords" content="@foreach (json_decode(setting()->meta_keywords) as $item){{ $item }},@endforeach"/> 
-    <meta name="description" content="{{ setting()->meta_description }}" /> 
-    <meta property="og:image" content="{{ asset(setting()->meta_photo) }}" />
-    <title>{{ __('ATL-Porto') }}</title>
-    <link rel="icon" href="{{ asset(setting()->fav_icon) }}" type="image/gif" sizes="16x16" />
- 
-    <link rel="stylesheet" href="{{ asset('front_asset') }}/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="{{ asset('front_asset') }}/css/fontawesome.all.min.css" />
-    <link rel="stylesheet" href="{{ asset('front_asset') }}/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="{{ asset('front_asset') }}/css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="{{ asset('front_asset') }}/css/animate.css" />
-    <link rel="stylesheet" href="{{ asset('front_asset') }}/css/lightcase.css" />
-    <link rel="stylesheet" href="{{ asset('front_asset') }}/css/normalize.css" />
-    <link rel="stylesheet" href="{{ asset('front_asset') }}/css/style.css" />
-    <link rel="stylesheet" href="{{ asset('front_asset') }}/css/responsive.css" />
-    <link rel="stylesheet" href="{{ asset('front_asset') }}/css/toastr.min.css">
-    <link rel="stylesheet" href="{{ asset('front_asset') }}/css/custom.css" />
-</head>
-
-<body class="">
-    @include('front.includes.header')
-    <!-- End Header Area -->
-{!! setting()->calendly_code !!}
+@extends('front.layouts.front_app');
+@section('front_content')
     <!-- Start Hero Area -->
     @if (section__status('Banner') == 1)
     <section class="hero-area section-bg" id="home">
-        <div class="container">
-            <div class="row">
+        <div class="">
+            <div class="row m-0">
                 <!-- Hero Content -->
-                <div class="col-lg-6 order-lg-first order-last align-self-center">
-                    <div class="hero-caption">
-                        <h4 class="left-border-s">{{ __('Hello') }}</h4>
-                        <h2>I'm <span>{{ setting()->banner_name }}</span> <br><span id="typed"></span></h2>
-
-                        @foreach ($titles as $title)
-                        <span id="animated-text" data="{{ $title->title }}"></span>
-                        @endforeach
-                        <p>{{  setting()->banner_description }}</p>
-                        <a class="button-1" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mollameehedi'});return false;">{{ setting()->calendly_button_name }}</a>
-                    </div>
+                <div class="col-lg-6 order-lg-first order-last align-self-center d-flex justify-content-center ">
+                    <div class="hero-caption w-50">
+                        <h4 class="left-border-s text-white">{{ __('Hello') }}</h4>
+                        <h2 class=" text-white">{{ setting()->banner_name }}</h2>
+                        <p class=" text-white">{{  setting()->banner_description }}</p>
+                        <button class="button-1">Contact Us</button>
+                   </div>
                 </div>
                 <!-- Hero Image -->
-                <div class="col-lg-6 align-self-end">
-                    <div class="hero-image banner_img banner_slider_img owl-carousel">
-                        @foreach ($sliders as $slider)
-                        <img src="{{ asset($slider->photo) }}" alt="img" class="">
-                        @endforeach
+                <div class="col-lg-6 align-self-end p-0">
+                    <div class="hero-image">
+                        {{-- @foreach ($sliders as $slider) --}}
+                        <img src="{{ asset($sliders->photo) }}" alt="img" class="">
+                        {{-- @endforeach --}}
                        <!-- Image -->
                         
                     </div>
@@ -84,7 +51,7 @@
                         <h4 class="left-border-s">{{ __("About Me") }}</h4>
                         <h2>{{ setting()->about_title }}</h2>
                         <p class="text-justify">{{ setting()->about_description }}</p>
-                        <a class="button-1" download="" href="{{  asset(setting()->cv) }}">{{ __("Download CV") }}</a>
+                        <a class="button-1" download="" href="{{  asset(setting()->cv) }}"> <i class="fas fa-download"></i>{{ __(" Company Profile") }}</a>
                         <div class="row">
                             <!-- row -->
                             <div class="col-md-6 col-sm-12">
@@ -138,7 +105,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-headding mb-40 text-center">
-                            <h2>{{ __("My Achievement") }}</h2>
+                            <h2>{{ __("Our Achievement") }}</h2>
                         </div>
                     </div>
                 </div>
@@ -176,7 +143,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-headding mb-40 text-center">
-                        <h2>{{ __("My Services") }}</h2>
+                        <h2>{{ __("Our Services") }}</h2>
                     </div>
                 </div>
             </div>
@@ -261,7 +228,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-headding mb-40 text-center">
-                        <h2>{{ __("My Portfolio") }}</h2>
+                        <h2>{{ __("Our Portfolio") }}</h2>
                     </div>
                 </div>
             </div>
@@ -438,145 +405,6 @@
         </section>
         @endif
         
-        <!-- End Testimonial Area -->
-    <!-- Start Contact Area -->
-    @if (section__status('Contact') == 1)
-    <section class="contact-area pt-20 pb-50" id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-headding mb-40 text-center">
-                        <h2>{{ __("Contact Now") }}</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 align-self-center mb-30">
-                    <div class="contact-form">
-                        @if ($errors->all())
-                            <div class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </div>
-                        @endif
-                        <form action="{{ route('front.contact') }}" method="post">
-                            @csrf
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="single-input">
-                                        <input type="text" name="name" placeholder="Your Name">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="single-input">
-                                        <input type="email" name="email" placeholder="Your Email">
-                                        <i class="far fa-envelope"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="single-input">
-                                        <input type="text" name="number" placeholder="Your Phone">
-                                        <i class="fas fa-mobile-alt"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="single-input">
-                                        <input type="text" name="subject" placeholder="Your Subjects">
-                                        <i class="fas fa-file-alt"></i>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="single-input">
-                                        <textarea name="message" placeholder="Write Message" spellcheck="false"></textarea>
-                                        <i class="fas fa-pen"></i>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="button-1">{{ __("Send Message") }}</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-30">
-                    <div class="contact-form-info"
-                        style="background-image:url('{{ asset('front_asset') }}/img/contact.jpg');">
-                        <h2>{{ __("Don't hesitate to contact Me") }}</h2>
-                        <div class="contact-info-list">
-                            <div class="item mb-20">
-                                <div class="icon">
-                                    <i class="fas fa-home"></i>
-                                </div>
-                                <div class="content">
-                                    <h4>{{ __("Locations") }}</h4>
-                                    <p>{{ setting()->address }}</p>
-                                </div>
-                            </div>
-                            <div class="item mb-20">
-                                <div class="icon">
-                                    <i class="far fa-envelope"></i>
-                                </div>
-                                <div class="content">
-                                    <h4>{{ __("Drop A Mail") }}</h4>
-                                    <p>{{ setting()->email }}</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="icon">
-                                    <i class="fas fa-mobile-alt"></i>
-                                </div>
-                                <div class="content">
-                                    <h4>{{ __("Call Me") }}</h4>
-                                    <p> {{ setting()->number }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    @endif
-  
-    <!-- End Contact Area -->
-    <!-- Start Footer Area -->
-    @include('front.includes.footer')
-    <!-- End Footer Area -->
-    <div class="scroll-area">
-        <i class="fa fa-angle-up"></i>
-    </div>
+     
 
-    <!-- Js File -->
-    <script src="{{ asset('front_asset') }}/js/modernizr.min.js"></script>
-    <script src="{{ asset('front_asset') }}/js/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('front_asset') }}/js/popper.min.js"></script>
-    <script src="{{ asset('front_asset') }}/js/bootstrap.min.js"></script>
-    
-    <script src="{{ asset('front_asset') }}/js/owl.carousel.min.js"></script>
-    <script src="{{ asset('front_asset') }}/js/jquery.nav.min.js"></script>
-    <script src="{{ asset('front_asset') }}/js/jquery.waypoints.min.js"></script>
-    <script src="{{ asset('front_asset') }}/js/jquery.counterup.min.js"></script>
-    <script src="{{ asset('front_asset') }}/js/lightcase.js"></script>
-    <script src="{{ asset('front_asset') }}/js/mixitup.min.js"></script>
-    <script src="{{ asset('front_asset') }}/js/wow.min.js"></script>
-    <script src="{{ asset('front_asset') }}/js/script.js"></script>
-    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-    <script src="{{ asset('front_asset') }}/js/typescript.js"></script>
-    <script src="{{ asset('front_asset') }}/js/typescript_demo.js"></script>
-    <script>
-        color('red');
-        function color(css_color){
-            let percentage = document.querySelector('.parcent')
-            console.log(percentage);    
-        //    let parcent =  $('.percent').css('background-color','red')
-        //    let parcent_border =  $('.percent::after').css('border-color','red')
-        //    console.log(parcent);
-           
-        }
-    </script>
-{!! Toastr::message() !!}
-</body>
-
-</html>
+@endsection

@@ -83,6 +83,12 @@
                     </a>
                 </li>
                 <li>
+                    <a class="waves-effect" href="{{ route('backend.case_study.index') }}" aria-expanded="false">
+                        <i class="far fa-circle text-success"></i>
+                        <span class="hide-menu">Case Study</span>
+                    </a>
+                </li>
+                <li>
                     <a class="waves-effect" href="{{ route('backend.contact.index') }}" aria-expanded="false">
                         <i class="far fa-circle text-success"></i>
                         <span class="hide-menu">contact</span>
