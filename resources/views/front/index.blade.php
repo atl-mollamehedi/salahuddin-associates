@@ -539,7 +539,7 @@
                  </div>
              </div>
              <div class="row">
-                 @foreach ($services->take(3) as $service)
+                 @foreach ($services as $service)
                  <!-- Services Single -->
                  <div class="col-lg-4 col-md-6 mb-30 custom_services">
                      <div class="services_bg_img">

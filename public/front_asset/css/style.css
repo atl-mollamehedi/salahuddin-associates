@@ -704,7 +704,7 @@ img{
     z-index: 1;
 }
 .custom_services_1 .services_bg_img{
-    margin-bottom: 170px;
+    margin-bottom: 190px;
 }
 .services-area1{
     padding-top: 130px !important;
@@ -769,7 +769,7 @@ img{
 }
 @media (max-width: 575px){
     .services_bg_img{
-        margin-bottom: 100px !important;
+        margin-bottom: 150px !important;
     }
     .custom_services:last-child .services_bg_img{
         margin-bottom: 20px !important;
