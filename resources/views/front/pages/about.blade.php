@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <!-- About Your Skill -->
-                @if (section__status('Skill') == 1)
+                {{-- @if (section__status('Skill') == 1)
                 <div class="col-lg-12 mb-40">
                     <div class="about-your-skill">
                         <div class="row">
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                 </div>
-                @endif
+                @endif --}}
                 <!-- Counter Area -->
                 @if (section__status('Achievement') == 1)
                 <div class="row">

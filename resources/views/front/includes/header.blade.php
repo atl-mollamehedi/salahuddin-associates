@@ -22,11 +22,11 @@
             <!-- Header Right -->
             <div class="col-lg-10 col-12">
                 <!-- Right Button -->
-                <div class="dl-cv desk_dark_light_button">
+                {{-- <div class="dl-cv desk_dark_light_button">
                     <div class="toggle-btn-lg">
                         <span class=""></span>
                     </div>
-                </div>
+                </div> --}}
                 <div class="dl-cv">
                     <a class="button-1" download href="{{  asset(setting()->cv) }}"> <i class="fas fa-download"></i> {{ __(' Company Profile') }}</a>
                 </div>
@@ -59,14 +59,9 @@
                                 <a class="nav-link" href="{{ route('front.blog') }}">{{ __('Blog') }}</a>
                             </li>
                             @endif
-
-                            @if (section__status('Contact') == 1)
+                            
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('front.contact_us') }}">{{ __('Contact Us') }}</a>
-                            </li>
-                            @endif
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('login') }}">{{ __('Login') }}</a>
                             </li>
                         </ul>
                     </nav>
