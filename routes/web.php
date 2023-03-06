@@ -44,6 +44,7 @@ use App\Http\Middleware\Makedemo;
 Route::group(['prefix' => '/', 'as' => 'front.'], function () {
     Route::get('/', [FrontendController::class, 'index'])->name('index');
     Route::get('/about', [FrontendController::class, 'about'])->name('about');
+    Route::get('/experience', [FrontendController::class, 'experience'])->name('experience');
     Route::get('/service', [FrontendController::class, 'service'])->name('service');
     Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
     Route::get('/case-study', [FrontendController::class, 'case_study'])->name('case_study');

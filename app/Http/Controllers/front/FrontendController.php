@@ -44,6 +44,10 @@ class FrontendController extends Controller
         $data['achievements'] = Achievement::latest()->get();
         return view('front.pages.about')->with($data);
     }
+    public function experience(){
+        $data['sliders'] = BannerSlider::latest()->first();
+        return view('front.pages.experience')->with($data);
+    }
     public function service(){
         $data['services'] = Service::latest()->get();
         return view('front.pages.service')->with($data);
