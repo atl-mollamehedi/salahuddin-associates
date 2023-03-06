@@ -8,9 +8,9 @@
                 <!-- Hero Content -->
                 <div class="col-lg-6 order-lg-first order-last align-self-center d-flex justify-content-center ">
                     <div class="hero-caption w-75">
-                        {{-- <h4 class="left-border-s text-white">{{ __('Banks and Financial Institution 
+                        {{-- <h4 class="left-border-s text-white">{{ __('Banks and Financial Institution
                             ') }}</h4> --}}
-                        <h2 class=" text-text-dark"> Banks and Financial Institution </h2>
+                        <h2 class=" text-text-dark">Banks and Financial Institution</h2>
                        <ul style="list-style:circle;color:rgb(19, 19, 19);padding:10px 0px 10px 45px">
                         <li>The Hongkong and Shanghai Banking Corporation Ltd.(HSBC), Bangladesh Branch </li>
                         <li>CitiBank N.A.</li>
@@ -49,7 +49,7 @@
 
                 <div class="col-lg-6  d-flex align-items-center justify-content-center">
                     <div class="hero-caption w-75">
-                        {{-- <h4 class="left-border-s text-white">{{ __('Banks and Financial Institution 
+                        {{-- <h4 class="left-border-s text-white">{{ __('Banks and Financial Institution
                             ') }}</h4> --}}
                         <h2 class=" text-dark"> Banks and Financial Institution </h2>
                        <ul style="list-style:circle;color:rgb(8, 8, 8);padding:10px 0px 10px 45px">
@@ -61,7 +61,7 @@
                        </ul>
                    </div>
                 </div>
-               
+
             </div>
     </section>
     <!-- End Hero Area -->
@@ -74,7 +74,7 @@
                     <!-- Hero Content -->
                     <div class="col-lg-6 order-lg-first order-last align-self-center d-flex justify-content-center ">
                         <div class="hero-caption w-75">
-                            {{-- <h4 class="left-border-s text-white">{{ __('Banks and Financial Institution 
+                            {{-- <h4 class="left-border-s text-white">{{ __('Banks and Financial Institution
                                 ') }}</h4> --}}
                             <h2 class=" text-dark"> Banks and Financial Institution </h2>
                            <ul style="list-style:circle;color:rgb(35, 35, 35);padding:10px 0px 10px 45px">
@@ -90,9 +90,9 @@
                     <div class="col-lg-6 align-self-end p-0">
                         <div class="hero-image">
                             <img src="{{ asset($sliders->photo) }}" alt="img" class="">
-    
+
                         </div>
-    
+
                     </div>
                 </div>
             </div>

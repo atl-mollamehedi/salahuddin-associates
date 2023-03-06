@@ -220,7 +220,7 @@
 
     <!-- End Resume Area -->
     <!-- Start Portfolio Area -->
-    @if (section__status('Portfolio') == 1)
+    {{-- @if (section__status('Portfolio') == 1)
     <section class="portfolio-area pt-20 pb-20" id="portfolio">
         <div class="container">
             <!-- Section Headding -->
@@ -264,36 +264,69 @@
             </div>
         </div>
     </section>
-    @endif
+    @endif --}}
     <!-- Start Hero Area -->
     <section class="hero-area   section-bg" id="project_done">
-        <div class="">
+        <div class="container-fluid">
             <div class="row m-0">
                 <!-- Hero Content -->
                 <div class="col-lg-6 order-lg-first order-last align-self-center d-flex justify-content-center ">
-                    <div class="hero-caption w-75">
-                        <div class="experience_slide">
+                    <div class="hero-caption w-75 carousel-nav">
+                        <div class="experience_slide banner_slider_img  owl-carousel">
+                        <div class="experience_item">
                             <h4 class="left-border-s text-white">{{ __('Our Diversified Experiences With Happy Clients') }}</h4>
                         <h2 class=" text-white"> Banks and Financial Institution </h2>
-                       <ul style="list-style:circle;color:white">
-                        <li>The Hongkong and Shanghai Banking Corporation Ltd.(HSBC), Bangladesh Branch </li>
-                        <li>CitiBank N.A.</li>
-                        <li>Standard Chartered Bank</li>
-                        <li>IDLC finance limited </li>
-                        <li>IPDC </li>
-                       </ul>
-                        <button class="button-1">Contact Us</button>
+                            <ul style="list-style:circle;color:white">
+                                <li>The Hongkong and Shanghai Banking Corporation Ltd.(HSBC), Bangladesh Branch </li>
+                                <li>CitiBank N.A.</li>
+                                <li>Standard Chartered Bank</li>
+                                <li>IDLC finance limited </li>
+                                <li>IPDC </li>
+                            </ul>
+                                <a class="button-1" href="{{ route('front.experience') }}">Read More</a>
+                        
+                        </div>
+                        <div class="experience_item">
+                            <h4 class="left-border-s text-white">{{ __('Our Diversified Experiences With Happy Clients') }}</h4>
+                        <h2 class=" text-white"> Banks and Financial Institution </h2>
+                            <ul style="list-style:circle;color:white">
+                                <li>The Hongkong and Shanghai Banking Corporation Ltd.(HSBC), Bangladesh Branch </li>
+                                <li>CitiBank N.A.</li>
+                                <li>Standard Chartered Bank</li>
+                                <li>IDLC finance limited </li>
+                                <li>IPDC </li>
+                            </ul>
+                                <a class="button-1" href="{{ route('front.experience') }}">Read More</a>
+                        
+                        </div>
+                        <div class="experience_item">
+                            <h4 class="left-border-s text-white">{{ __('Our Diversified Experiences With Happy Clients') }}</h4>
+                        <h2 class=" text-white"> Banks and Financial Institution </h2>
+                            <ul style="list-style:circle;color:white">
+                                <li>The Hongkong and Shanghai Banking Corporation Ltd.(HSBC), Bangladesh Branch </li>
+                                <li>CitiBank N.A.</li>
+                                <li>Standard Chartered Bank</li>
+                                <li>IDLC finance limited </li>
+                                <li>IPDC </li>
+                            </ul>
+                                <a class="button-1" href="{{ route('front.experience') }}">Read More</a>
+                        
+                        </div>
                         </div>
                    </div>
                 </div>
                 <!-- Hero Image -->
                 <div class="col-lg-6 align-self-end p-0">
-                    <div class="hero-image">
-                        {{-- @foreach ($sliders as $slider) --}}
-                        <img src="{{ asset($sliders->photo) }}" alt="img" class="">
-                        {{-- @endforeach --}}
+                    <div>
+                    <div class="banner_slider_img  owl-carousel">
+                        <img src="{{ asset($sliders->photo) }}" alt="img" class="img-fluid">
+                        <img src="{{ asset($sliders->photo) }}" alt="img" class="img-fluid">
+                        <img src="{{ asset($sliders->photo) }}" alt="img" class="img-fluid">
+                        <img src="{{ asset($sliders->photo) }}" alt="img" class="img-fluid">
+                       
                        <!-- Image -->
 
+                    </div>
                     </div>
 
                 </div>
@@ -302,6 +335,43 @@
     </section>
     <!-- End Hero Area -->
     <!-- End Portfolio Area -->
+     <!-- Start Services Area -->
+     @if (section__status('Service') == 1)
+     <section class="services-area pt-40 pb-20" id="services">
+         <div class="container">
+             <!-- Section Headding -->
+             <div class="row">
+                 <div class="col-lg-12">
+                     <div class="section-headding mb-40 text-center">
+                        <p>Case Studies</p>
+                         <h2>Project We Have Done</h2>
+                     </div>
+                 </div>
+             </div>
+             <div class="row">
+                 @foreach ($services->take(3) as $service)
+                 <!-- Services Single -->
+                 <div class="col-lg-4 col-md-6 mb-30 custom_services">
+                     <div class="services_bg_img">
+                         <img src="{{asset('uploads/services/services1.jpg')}}" alt="service img">
+                         <div class="services-box">
+                             <div class="icon">
+                                 <i class="{{ $service->icon }}"></i>
+                             </div>
+                             <h2>{{ $service->name }}</h2>
+                             <p>{{ $service->description }}</p>
+                         </div>
+                     </div>
+                 </div>
+                 @endforeach
+             </div>
+         </div>
+     </section>
+     @endif
+
+     <!-- End Services Area -->
+
+
 
     <!-- Start Latest Blog Area -->
     @if (section__status('Blog') == 1)
