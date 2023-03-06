@@ -60,13 +60,10 @@
     <script src="{{ asset('front_asset') }}/js/typescript.js"></script>
     <script src="{{ asset('front_asset') }}/js/typescript_demo.js"></script>
     <script>
-        color('red');
+        color('red')
         function color(css_color){
             let percentage = document.querySelector('.parcent')
-            console.log(percentage);
-        //    let parcent =  $('.percent').css('background-color','red')
-        //    let parcent_border =  $('.percent::after').css('border-color','red')
-        //    console.log(parcent);
+            console.log(percentage)
 
         }
     </script>

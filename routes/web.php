@@ -53,6 +53,10 @@ Route::group(['prefix' => '/', 'as' => 'front.'], function () {
     Route::get('/case-study', [FrontendController::class, 'case_study'])->name('case_study');
     Route::match(['get','post'],'/contact', [FrontendController::class, 'store'])->name('contact');
     Route::get('/contact-us', [FrontendController::class, 'contact_us'])->name('contact_us');
+    Route::group(['prefix' => '/inquery', 'as' => 'inquery.'], function () {
+        Route::get('/',  [FrontendController::class, 'inquery_index'])->name('index');
+        Route::post('/store',  [FrontendController::class, 'inquery_store'])->name('store');
+    });
     Route::get('clear',  [FrontendController::class, 'clear'])->name('clear');
 
 });
