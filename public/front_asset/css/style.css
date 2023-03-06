@@ -493,7 +493,7 @@ img{
   width: 0px;
 }
 .about-content p::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 .about-content a.button-1{
 	margin-bottom: 20px;
@@ -527,7 +527,7 @@ img{
     background-color: #222222;
     position: relative;
     overflow: visible;
-    animation: animate 3s ease 0s 1 normal;    
+    animation: animate 3s ease 0s 1 normal;
     opacity: 1;
 }
 @keyframes animate{
@@ -624,16 +624,21 @@ img{
 /*
  * #-Services
 */
+#services{
+    margin: 0 0 100px;
+}
 .services-box {
-	width: 100%;
+	max-width: 100%;
 	border: 2px solid #eeeeee7d;
 	-webkit-transition: all .4s ease-in-out;
 	transition: all .4s ease-in-out;
 	padding: 30px 40px;
 	position: relative;
 	text-align: center;
-	width: 98%;
-	margin: 1%;
+	width: 80%;
+	margin: 0 auto;
+    background-color: #000000;
+    color: #fff;
 }
 .services-box:hover {
 	border-color: transparent;
@@ -689,6 +694,15 @@ img{
 }
 .services-box:hover p{
 	color: #fff;
+}
+.services_bg_img{
+    position: relative;
+}
+.services_bg_img .services-box{
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    z-index: 999;
 }
 /*
  * #-Resume
@@ -1193,7 +1207,7 @@ img{
   background: url('./../img/preloader.gif') center no-repeat;
   background-position: center;
   background-size: cover;
-  z-index: 999999; 
+  z-index: 999999;
 }
 #preloader .preloader {
 	width: 100%;
@@ -1228,22 +1242,22 @@ img{
 @keyframes preloader {
   	0% {
     	transform: scale(0, 0);
-    	opacity: 0.5; 
+    	opacity: 0.5;
 	}
   	100% {
     	transform: scale(1, 1);
-    	opacity: 0; 
-	} 
+    	opacity: 0;
+	}
 }
 @-webkit-keyframes preloader {
   	0% {
     	-webkit-transform: scale(0, 0);
-    	opacity: 0.5; 
+    	opacity: 0.5;
 	}
   	100% {
     	-webkit-transform: scale(1, 1);
-    	opacity: 0; 
-    } 
+    	opacity: 0;
+    }
 }
 /*End Preloader Style*/
 .header.sticky {
@@ -1264,22 +1278,22 @@ img{
 @-webkit-keyframes sticky {
   	0% {
     	-webkit-transform: translateY(-100%);
-    	transform: translateY(-100%); 
+    	transform: translateY(-100%);
     }
   	100% {
     	-webkit-transform: translateY(0%);
-    	transform: translateY(0%); 
-	} 
+    	transform: translateY(0%);
+	}
 }
 @keyframes sticky {
   	0% {
     	-webkit-transform: translateY(-100%);
-    	transform: translateY(-100%); 
+    	transform: translateY(-100%);
 	}
   	100% {
     	-webkit-transform: translateY(0%);
-    	transform: translateY(0%); 
-	} 
+    	transform: translateY(0%);
+	}
 }
 /*
  * #-Dark Demo
@@ -1296,9 +1310,9 @@ img{
 }
 .drak .header.sticky {
 	background: #000;
-	 -webkit-box-shadow: 2px 4px 8px rgba(21, 21, 21, 0.25); 
+	 -webkit-box-shadow: 2px 4px 8px rgba(21, 21, 21, 0.25);
 	-moz-box-shadow: 2px 4px 8px rgba(51, 51, 51, 0.25);
-	 box-shadow: 2px 4px 8px rgba(45, 43, 43, 0.25); 
+	 box-shadow: 2px 4px 8px rgba(45, 43, 43, 0.25);
 }
 .drak .menu ul li.current a {
 	color: #00c4ff;

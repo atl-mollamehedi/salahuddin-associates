@@ -2,26 +2,28 @@
 
 namespace App\Http\Controllers\front;
 
-use App\Http\Controllers\Controller;
-use App\Models\Achievement;
-use App\Models\banner_title;
-use App\Models\BannerSlider;
+use Artisan;
+use Carbon\Carbon;
 use App\Models\Blog;
-use App\Models\Category;
-use App\Models\Contact_Message;
-use App\Models\MyPortfolio;
+use App\Models\Skill;
 use App\Models\Resume;
 use App\Models\Review;
 use App\Models\Service;
-use App\Models\Skill;
-use Carbon\Carbon;
+use App\Models\Category;
+use App\Models\Achievement;
+use App\Models\MyPortfolio;
+use App\Models\banner_title;
+use App\Models\BannerSlider;
 use Illuminate\Http\Request;
+use App\Models\Contact_Message;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
-use Artisan;
+use SebastianBergmann\LinesOfCode\Exception;
 
 class FrontendController extends Controller
 {
-   
+
     public function index(){
         $data['categories'] = Category::latest()->get();
         $data['testimonials'] = Review::latest()->get();
@@ -51,8 +53,6 @@ class FrontendController extends Controller
             Toastr::success('Success', 'Message Sent Successfully');
             return back();
         }
-        
-      
     }
     public function clear(){
         Artisan::call('cache:clear');
@@ -73,5 +73,5 @@ class FrontendController extends Controller
             'message' => ['required'],
         ]);
     }
-    
+
 }

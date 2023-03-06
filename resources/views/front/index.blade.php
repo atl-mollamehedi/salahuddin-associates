@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="author" content="{{ setting()->meta_author }}">
-    <meta name="keywords" content="@foreach (json_decode(setting()->meta_keywords) as $item){{ $item }},@endforeach"/> 
-    <meta name="description" content="{{ setting()->meta_description }}" /> 
+    <meta name="keywords" content="@foreach (json_decode(setting()->meta_keywords) as $item){{ $item }},@endforeach"/>
+    <meta name="description" content="{{ setting()->meta_description }}" />
     <meta property="og:image" content="{{ asset(setting()->meta_photo) }}" />
     <title>{{ __('ATL-Porto') }}</title>
     <link rel="icon" href="{{ asset(setting()->fav_icon) }}" type="image/gif" sizes="16x16" />
- 
+
     <link rel="stylesheet" href="{{ asset('front_asset') }}/css/bootstrap.min.css" />
     <link rel="stylesheet" href="{{ asset('front_asset') }}/css/fontawesome.all.min.css" />
     <link rel="stylesheet" href="{{ asset('front_asset') }}/css/owl.carousel.min.css" />
@@ -54,9 +54,9 @@
                         <img src="{{ asset($slider->photo) }}" alt="img" class="">
                         @endforeach
                        <!-- Image -->
-                        
+
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -100,7 +100,7 @@
                                 <!-- col-6 -->
                                 <div class="about-cn">
                                     <ul>
-                                        
+
                                         <li><i class="far fa-envelope"></i>{{ setting()->email }}</li>
                                         <li><i class="fab fa-whatsapp"></i> {{ setting()->number }}</li>
                                     </ul>
@@ -166,7 +166,7 @@
         </div>
     </section>
     @endif
-    
+
     <!-- End About Area -->
     <!-- Start Services Area -->
     @if (section__status('Service') == 1)
@@ -181,15 +181,18 @@
                 </div>
             </div>
             <div class="row">
-                @foreach ($services as $service)
+                @foreach ($services->take(3) as $service)
                 <!-- Services Single -->
                 <div class="col-lg-4 col-md-6 mb-30">
-                    <div class="services-box">
-                        <div class="icon">
-                            <i class="{{ $service->icon }}"></i>
+                    <div class="services_bg_img">
+                        <img src="{{asset('uploads/services/services1.jpg')}}" alt="service img">
+                        <div class="services-box">
+                            <div class="icon">
+                                <i class="{{ $service->icon }}"></i>
+                            </div>
+                            <h2>{{ $service->name }}</h2>
+                            <p>{{ $service->description }}</p>
                         </div>
-                        <h2>{{ $service->name }}</h2>
-                        <p>{{ $service->description }}</p>
                     </div>
                 </div>
                 @endforeach
@@ -197,7 +200,7 @@
         </div>
     </section>
     @endif
-   
+
     <!-- End Services Area -->
     <!-- Start Resume Area -->
     @if (section__status('Resume') == 1)
@@ -217,7 +220,7 @@
                         <h3>{{ __('Education') }} </h3>
                         <div class="resume__list">
                             @foreach ($resumes_educations as $resumes_education)
-                            
+
                             <!-- Single -->
                             <div class="single-resume__list  wow fadeInUp">
                                 <div class="year">
@@ -251,7 +254,7 @@
         </div>
     </section>
     @endif
-   
+
     <!-- End Resume Area -->
     <!-- Start Portfolio Area -->
     @if (section__status('Portfolio') == 1)
@@ -270,7 +273,7 @@
                     <ul>
                         <li data-filter="all">{{ __("All") }}</li>
                         @foreach ($categories as $category)
-                            
+
                         <li data-filter=".{{ $category->slug }}">{{ $category->name }}</li>
                         @endforeach
                     </ul>
@@ -299,7 +302,7 @@
         </div>
     </section>
     @endif
-   
+
     <!-- End Portfolio Area -->
 
     <!-- Start Latest Blog Area -->
@@ -327,7 +330,7 @@
                         <div class="content">
                             <div class="meta">
                                 <span><a href="javascript:void(0)"><i class="fas fa-user"></i> by: {{ $blog->user->name }}</a></span>
-                                <span><a href="javascript:void(0)"><i class="fas fa-tags"></i> 
+                                <span><a href="javascript:void(0)"><i class="fas fa-tags"></i>
                                     @php
                                     $tages = json_decode($blog->tage, true);
                                    $tage_data = '';
@@ -363,7 +366,7 @@
                         <div class="content">
                             <div class="meta">
                                 <span><a href="javascript:void(0)"><i class="fas fa-user"></i> by: {{ $blog->user->name }}</a></span>
-                                <span><a href="javascript:void(0)"><i class="fas fa-tags"></i> 
+                                <span><a href="javascript:void(0)"><i class="fas fa-tags"></i>
                                     @php
                                     $tages = json_decode($blog->tage, true);
                                    $tage_data = '';
@@ -389,14 +392,14 @@
                     </div>
                 </div>
                 @endif
-                
+
                 @include('front.includes.blog')
                 @endforeach
             </div>
         </div>
     </section>
     @endif
-    
+
     <!-- End Latest Blog Area -->
         <!-- Start Testimonial Area -->
         @if (section__status('Review') == 1)
@@ -423,7 +426,7 @@
                                 @else
                                 <p>{{ $testimonial->review_text }}</p>
                                 @endif
-                                
+
                                 <h2>{{ $testimonial->name }}</h2>
                                 <h4>{{ $testimonial->title }}</h4>
                             </div>
@@ -437,7 +440,7 @@
             </div>
         </section>
         @endif
-        
+
         <!-- End Testimonial Area -->
     <!-- Start Contact Area -->
     @if (section__status('Contact') == 1)
@@ -539,7 +542,7 @@
         </div>
     </section>
     @endif
-  
+
     <!-- End Contact Area -->
     <!-- Start Footer Area -->
     @include('front.includes.footer')
@@ -553,7 +556,7 @@
     <script src="{{ asset('front_asset') }}/js/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('front_asset') }}/js/popper.min.js"></script>
     <script src="{{ asset('front_asset') }}/js/bootstrap.min.js"></script>
-    
+
     <script src="{{ asset('front_asset') }}/js/owl.carousel.min.js"></script>
     <script src="{{ asset('front_asset') }}/js/jquery.nav.min.js"></script>
     <script src="{{ asset('front_asset') }}/js/jquery.waypoints.min.js"></script>
@@ -569,11 +572,11 @@
         color('red');
         function color(css_color){
             let percentage = document.querySelector('.parcent')
-            console.log(percentage);    
+            console.log(percentage);
         //    let parcent =  $('.percent').css('background-color','red')
         //    let parcent_border =  $('.percent::after').css('border-color','red')
         //    console.log(parcent);
-           
+
         }
     </script>
 {!! Toastr::message() !!}
