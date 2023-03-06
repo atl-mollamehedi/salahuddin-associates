@@ -71,9 +71,12 @@ text-align: justify;
 
 .user_items{
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .user_items .para{
     margin-left: 5px;
     margin-right: 10px;
 }
+

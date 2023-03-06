@@ -7,8 +7,8 @@
 
                 <div class="bread">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{route('front.index')}}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{route('front.blog')}}">Blog</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('front.index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('front.blog') }}">Blog</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Details</li>
                     </ol>
                 </div>
@@ -32,17 +32,27 @@
 
 
                     <div class="user_items">
-                        <span><i class="fas fa-user"></i></span>
-                        <span class="para">{{ $blog->user->name }}</span>
+
+                        <div>
+                            <span><i class="fas fa-user"></i></span>
+                            <span class="para">{{ $blog->user->name }}</span>
 
 
-                        <span><i class="fas fa-tags"></i></span>
-                        <span class="para">{{ $blog->tage }}</span>
+                            <span><i class="fas fa-tags"></i></span>
+                            <span class="para">{{ $blog->tage }}</span>
+
+                        </div>
+
+
+                        <span class="daty">
+                            <span><i class="far fa-calendar-alt"></i></span>
+                            <span class="para">{{ $blog->created_at->format('Y M d') }}</span>
+                        </span>
                     </div>
 
-                    {{-- <div class="date">
-                        <span><i class="far fa-calendar-alt"></i> {{ $blog->created_at->format('Y M d') }}</span>
-                    </div> --}}
+
+
+
 
 
 
