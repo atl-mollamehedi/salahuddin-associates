@@ -73,40 +73,106 @@
             </div>
 
             <div class="col-lg-4">
+                {{-- <div class="row">
+                    @foreach ($blogs as $blog)
+                        <div class="single_blog_item">
+                            <div class="single_blog_item_image">
+                                <a href="">
+                                    <img src="{{ asset($blog->photo) }}" alt="" class="w-100 img-fluid">
+                                </a>
+
+
+                                <div class="single_blog_item_title">
+                                    <a href="">
+                                        <h6>
+                                            {{ $blog->name }}</h6>
+                                    </a>
+                                </div>
+                                <div class="single_blog_item_text">
+                                    <a href="">
+                                        <p>{{ Str::limit($blog->description) }}</p>
+                                    </a>
+
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+                            <div class="user_items">
+                                <span><i class="fas fa-user"></i></span>
+                                <span class="para">{{ $blog->user->name }}</span>
+
+
+                                <span><i class="fas fa-tags"></i></span>
+                                <span class="para">{{ $blog->tage }}</span>
+
+
+                            </div>
+                        </div>
+                    @endforeach
+                </div> --}}
+
                 @foreach ($blogs as $blog)
-                    <div class="single_blog_item">
-                        <div class="single_blog_item_image">
-                            <a href="">
-                                <img src="{{ asset($blog->photo) }}" alt="" class="w-100 img-fluid">
-                            </a>
-                        </div>
-
-
-                        <div class="user_items">
-                            <span><i class="fas fa-user"></i></span>
-                            <span class="para">{{ $blog->user->name }}</span>
-
-
-                            <span><i class="fas fa-tags"></i></span>
-                            <span class="para">{{ $blog->tage }}</span>
-
-
-                        </div>
+                    <div class="super_card">
+                        <div class="card">
 
 
 
+                            <div class="card-body">
 
-                        <div class="single_blog_item_title">
-                            <a href="">
-                                <h6>
-                                    {{ $blog->name }}</h6>
-                            </a>
-                        </div>
-                        <div class="single_blog_item_text">
-                            <a href="">
-                                <p>{{ Str::limit($blog->description) }}</p>
-                            </a>
 
+                                    <div class="user_items_sys">
+                                        <span><i class="fas fa-user"></i></span>
+                                        <span class="parab">{{ $blog->user->name }}</span>
+
+
+                                        <span><i class="fas fa-tags"></i></span>
+                                        <span class="parab">{{ $blog->tage }}</span>
+
+
+                                    </div>
+
+                                    <div class="row">
+
+
+                                        <div class="col-lg-4">
+                                            <a href="">
+                                                <img src="{{ asset($blog->photo) }}" alt=""
+                                                    class="w-100 img-fluid">
+                                            </a>
+                                        </div>
+
+                                        <div class="col-lg-8">
+
+                                            <div>
+                                                <a href="">
+                                                    <h6>
+                                                        {{ $blog->name }}</h6>
+                                                </a>
+
+
+                                                <a href="">
+                                                    <small>{{ Str::limit($blog->description, 65) }}</small>
+                                                </a>
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+                               
+
+
+
+
+                            </div>
                         </div>
                     </div>
                 @endforeach
