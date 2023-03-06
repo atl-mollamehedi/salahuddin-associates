@@ -22,7 +22,7 @@ use Artisan;
 
 class FrontendController extends Controller
 {
-   
+
     public function index(){
         $data['categories'] = Category::latest()->get();
         $data['testimonials'] = Review::latest()->get();
@@ -50,12 +50,22 @@ class FrontendController extends Controller
         $data['blogs'] = Blog::latest()->get();
         return view('front.pages.blog')->with($data);
     }
+
+    public function blog_details($blog_id){
+        $blogs = Blog::all();
+        $blog = Blog::find($blog_id);
+        return view('front.pages.blog_details', [
+            'blog' => $blog,
+            'blogs' => $blogs,
+        ]);
+    }
+
     public function case_study(){
         $data['case_studies'] = CaseStudy::latest()->get();
         return view('front.pages.case_study')->with($data);
     }
     public function contact_us(){
-        
+
         return view('front.pages.contact_us');
     }
 
@@ -73,8 +83,8 @@ class FrontendController extends Controller
             Toastr::success('Success', 'Message Sent Successfully');
             return back();
         }
-        
-      
+
+
     }
     public function clear(){
         Artisan::call('cache:clear');
@@ -95,5 +105,5 @@ class FrontendController extends Controller
             'message' => ['required'],
         ]);
     }
-    
+
 }

@@ -46,6 +46,9 @@ Route::group(['prefix' => '/', 'as' => 'front.'], function () {
     Route::get('/about', [FrontendController::class, 'about'])->name('about');
     Route::get('/service', [FrontendController::class, 'service'])->name('service');
     Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
+
+    Route::get('/blog/details/{blog_id}', [FrontendController::class, 'blog_details'])->name('blog_details');
+
     Route::get('/case-study', [FrontendController::class, 'case_study'])->name('case_study');
     Route::match(['get','post'],'/contact', [FrontendController::class, 'store'])->name('contact');
     Route::get('/contact-us', [FrontendController::class, 'contact_us'])->name('contact_us');
