@@ -51,7 +51,7 @@
                             @endif
                             @if (section__status('Portfolio') == 1)
                             <li class="nav-item">
-                                <a class="nav-link" href="#portfolio">{{ __('Portfolio') }}</a>
+                                <a class="nav-link" href="{{ route('front.experience') }}">{{ __('Experience') }}</a>
                             </li>
                             @endif
                             @if (section__status('Blog') == 1)

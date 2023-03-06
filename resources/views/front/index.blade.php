@@ -32,6 +32,55 @@
     <!-- End Hero Area -->
 
 
+<div id="support">
+    <div class="container">
+         <!-- Counter Area -->
+ <div class="row">
+    <!-- Counter ITEM -->
+    <div class="col-lg-4 col-sm-4 mb-30">
+        <div class="counter-item">
+            <div class="icon">
+                <i class="fa fa-hand-holding-usd"></i>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h2 class="counte">Saving Strategies</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit sed do eiusmod tempor incididunt ut labore et</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 mb-30">
+        <div class="counter-item center">
+            <div class="icon">
+                <i class="fa fa-book-reader"></i>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h2 class="counte">Competitive Price</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit sed do eiusmod tempor incididunt ut labore et</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 mb-30">
+        <div class="counter-item">
+            <div class="icon">
+                <i class="fa fa-chalkboard-teacher"></i>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h2 class="counte">24/7 Support</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit sed do eiusmod tempor incididunt ut labore et</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Counter Area -->
+    </div>
+</div>
+
     <!-- Start About Area -->
     @if (section__status('About') == 1)
     <section class="about-area pt-40 {{ section__status('Banner') === 2? 'mt-70':'' }}" id="about">
@@ -76,59 +125,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- About Your Skill -->
-                @if (section__status('Skill') == 1)
-                <div class="col-lg-12 mb-40">
-                    <div class="about-your-skill">
-                        <div class="row">
-                            @foreach ($skills as $skill)
-                            <div class="col-md-6">
-                                <!-- Single -->
-                                <div class="progress-bars wow fadeInUp" data-wow-delay=".1s">
-                                    <div class="single-progress">
-                                        <h3>{{ $skill->name }}</h3>
-                                        <div class="progress">
-                                            <div class="progress-bar wow" style="width: {{ $skill->percentage }}%">
-                                                <span class="percent" color="{{ $skill->color_dark }}" data="{{ $skill->color_dark }}">{{ $skill->percentage }}%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                @endif
-                <!-- Counter Area -->
-                @if (section__status('Achievement') == 1)
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-headding mb-40 text-center">
-                            <h2>{{ __("Our Achievement") }}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    @foreach ($achievements as $achievement)
-                    <!-- Counter ITEM -->
-                    <div class="col-lg-3 col-sm-6 mb-30">
-                        <div class="counter-item">
-                            <div class="icon">
-                                <i class="{{ $achievement->icon }}"></i>
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <h2 class="counter">{{ $achievement->count }}</h2>
-                                </div>
-                                <p>{{ $achievement->name }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-                @endif
-                <!-- Counter Area -->
             </div>
         </div>
     </section>
@@ -269,6 +265,42 @@
         </div>
     </section>
     @endif
+    <!-- Start Hero Area -->
+    <section class="hero-area   section-bg" id="project_done">
+        <div class="">
+            <div class="row m-0">
+                <!-- Hero Content -->
+                <div class="col-lg-6 order-lg-first order-last align-self-center d-flex justify-content-center ">
+                    <div class="hero-caption w-75">
+                        <div class="experience_slide">
+                            <h4 class="left-border-s text-white">{{ __('Our Diversified Experiences With Happy Clients') }}</h4>
+                        <h2 class=" text-white"> Banks and Financial Institution </h2>
+                       <ul style="list-style:circle;color:white">
+                        <li>The Hongkong and Shanghai Banking Corporation Ltd.(HSBC), Bangladesh Branch </li>
+                        <li>CitiBank N.A.</li>
+                        <li>Standard Chartered Bank</li>
+                        <li>IDLC finance limited </li>
+                        <li>IPDC </li>
+                       </ul>
+                        <button class="button-1">Contact Us</button>
+                        </div>
+                   </div>
+                </div>
+                <!-- Hero Image -->
+                <div class="col-lg-6 align-self-end p-0">
+                    <div class="hero-image">
+                        {{-- @foreach ($sliders as $slider) --}}
+                        <img src="{{ asset($sliders->photo) }}" alt="img" class="">
+                        {{-- @endforeach --}}
+                       <!-- Image -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero Area -->
     <!-- End Portfolio Area -->
      <!-- Start Services Area -->
      @if (section__status('Service') == 1)

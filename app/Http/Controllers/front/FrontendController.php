@@ -29,9 +29,9 @@ class FrontendController extends Controller
         $data['categories'] = Category::latest()->get();
         $data['testimonials'] = Review::latest()->get();
         $data['portfolios'] = MyPortfolio::latest()->get();
-        $data['blogs'] = Blog::latest()->get();
+        $data['blogs'] = Blog::latest()->get()->take(3);
         $data['skills'] = Skill::latest()->get();
-        $data['services'] = Service::latest()->get();
+        $data['services'] = Service::latest()->get()->take(3);
         $data['achievements'] = Achievement::latest()->get();
         $data['resumes_educations'] = Resume::where('type',1)->latest()->get();
         $data['resumes_experiences'] = Resume::where('type',2)->latest()->get();
@@ -44,6 +44,10 @@ class FrontendController extends Controller
         $data['achievements'] = Achievement::latest()->get();
         return view('front.pages.about')->with($data);
     }
+    public function experience(){
+        $data['sliders'] = BannerSlider::latest()->first();
+        return view('front.pages.experience')->with($data);
+    }
     public function service(){
         $data['services'] = Service::latest()->get();
         return view('front.pages.service')->with($data);
@@ -52,6 +56,16 @@ class FrontendController extends Controller
         $data['blogs'] = Blog::latest()->get();
         return view('front.pages.blog')->with($data);
     }
+
+    public function blog_details($blog_id){
+        $blogs = Blog::all();
+        $blog = Blog::find($blog_id);
+        return view('front.pages.blog_details', [
+            'blog' => $blog,
+            'blogs' => $blogs,
+        ]);
+    }
+
     public function case_study(){
         $data['case_studies'] = CaseStudy::latest()->get();
         return view('front.pages.case_study')->with($data);
@@ -75,6 +89,8 @@ class FrontendController extends Controller
             Toastr::success('Success', 'Message Sent Successfully');
             return back();
         }
+
+
     }
     public function clear(){
         Artisan::call('cache:clear');
