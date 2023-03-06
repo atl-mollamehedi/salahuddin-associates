@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group text-left">
                         <label for="message-text" class="control-label">Achievement Count</label>
-                        <input type="number" class="form-control" id="message-text1"
+                        <input type="text" class="form-control" id="message-text1"
                             placeholder="Enter Achievement Count" name="count" value="{{ $achievement->count }}" />
                         @if ($errors->has('count'))
                             <div class="error" style="color: red">{{ $errors->first('count') }}</div>

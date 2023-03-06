@@ -30,7 +30,54 @@
     </section>
     @endif
     <!-- End Hero Area -->
-
+<div id="support">
+    <div class="container">
+         <!-- Counter Area -->
+ <div class="row">
+    <!-- Counter ITEM -->
+    <div class="col-lg-4 col-sm-4 mb-30">
+        <div class="counter-item">
+            <div class="icon">
+                <i class="fa fa-hand-holding-usd"></i>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h2 class="counte">Saving Strategies</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit sed do eiusmod tempor incididunt ut labore et</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 mb-30">
+        <div class="counter-item center">
+            <div class="icon">
+                <i class="fa fa-book-reader"></i>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h2 class="counte">Competitive Price</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit sed do eiusmod tempor incididunt ut labore et</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 mb-30">
+        <div class="counter-item">
+            <div class="icon">
+                <i class="fa fa-chalkboard-teacher"></i>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h2 class="counte">24/7 Support</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit sed do eiusmod tempor incididunt ut labore et</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Counter Area -->
+    </div>
+</div>
 
     <!-- Start About Area -->
     @if (section__status('About') == 1)
@@ -76,59 +123,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- About Your Skill -->
-                @if (section__status('Skill') == 1)
-                <div class="col-lg-12 mb-40">
-                    <div class="about-your-skill">
-                        <div class="row">
-                            @foreach ($skills as $skill)
-                            <div class="col-md-6">
-                                <!-- Single -->
-                                <div class="progress-bars wow fadeInUp" data-wow-delay=".1s">
-                                    <div class="single-progress">
-                                        <h3>{{ $skill->name }}</h3>
-                                        <div class="progress">
-                                            <div class="progress-bar wow" style="width: {{ $skill->percentage }}%">
-                                                <span class="percent" color="{{ $skill->color_dark }}" data="{{ $skill->color_dark }}">{{ $skill->percentage }}%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                @endif
-                <!-- Counter Area -->
-                @if (section__status('Achievement') == 1)
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-headding mb-40 text-center">
-                            <h2>{{ __("Our Achievement") }}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    @foreach ($achievements as $achievement)
-                    <!-- Counter ITEM -->
-                    <div class="col-lg-3 col-sm-6 mb-30">
-                        <div class="counter-item">
-                            <div class="icon">
-                                <i class="{{ $achievement->icon }}"></i>
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <h2 class="counter">{{ $achievement->count }}</h2>
-                                </div>
-                                <p>{{ $achievement->name }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-                @endif
-                <!-- Counter Area -->
             </div>
         </div>
     </section>
