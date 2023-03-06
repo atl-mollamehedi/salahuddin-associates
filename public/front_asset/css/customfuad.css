@@ -1,23 +1,51 @@
 .blog_hero_banner {
+    width: 100%;
     height: 420px;
     padding: 20px 0px;
-    margin: 20px 0px;
+    margin: 20px 0px;;
+    background: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)),
+      url("../../uploads/banner/blog_image.jpg")
+      center center no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
-.blog_hero_banner img {
+.blog_hero_banner .bread{
+    text-align: center;
+    vertical-align: center;
+}
+
+.bread .breadcrumb .breadcrumb-item a{
+    color: #ffffff;
+    font-size: 20px;
+}
+.bread .breadcrumb .breadcrumb-item.active{
+    color: #FFE400;
+    font-size: 20px;
+}
+.bread .breadcrumb .breadcrumb-item::before{
+    color: #ffffff;
+    font-size: 20px;
+}
+/* .blog_hero_banner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-}
+} */
 
-.blog_hero_banner::after {
+/* .blog_hero_banner::after {
     height: 420px;
     padding: 20px 0px;
     margin: 20px 0px;
     background-color: black;
     color: black;
-}
+} */
 
 .single_blog_all{
     padding: 100px 0px 100px 0px;
@@ -43,9 +71,12 @@ text-align: justify;
 
 .user_items{
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .user_items .para{
     margin-left: 5px;
     margin-right: 10px;
 }
+
