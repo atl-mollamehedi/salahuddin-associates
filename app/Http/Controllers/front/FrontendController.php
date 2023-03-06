@@ -5,17 +5,17 @@ namespace App\Http\Controllers\front;
 use Artisan;
 use Carbon\Carbon;
 use App\Models\Blog;
-use App\Models\Skill;
+use App\Models\CaseStudy;
+use App\Models\Category;
+use App\Models\Contact_Message;
+use App\Models\MyPortfolio;
 use App\Models\Resume;
 use App\Models\Review;
 use App\Models\Service;
-use App\Models\Category;
 use App\Models\Achievement;
-use App\Models\MyPortfolio;
 use App\Models\banner_title;
 use App\Models\BannerSlider;
 use Illuminate\Http\Request;
-use App\Models\Contact_Message;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
@@ -34,12 +34,33 @@ class FrontendController extends Controller
         $data['achievements'] = Achievement::latest()->get();
         $data['resumes_educations'] = Resume::where('type',1)->latest()->get();
         $data['resumes_experiences'] = Resume::where('type',2)->latest()->get();
-        $data['sliders'] = BannerSlider::latest()->get();
+        $data['sliders'] = BannerSlider::latest()->first();
         $data['titles'] = banner_title::latest()->get();
         return view('front.index')->with($data);
     }
+    public function about(){
+        $data['skills'] = Skill::latest()->get();
+        $data['achievements'] = Achievement::latest()->get();
+        return view('front.pages.about')->with($data);
+    }
+    public function service(){
+        $data['services'] = Service::latest()->get();
+        return view('front.pages.service')->with($data);
+    }
+    public function blog(){
+        $data['blogs'] = Blog::latest()->get();
+        return view('front.pages.blog')->with($data);
+    }
+    public function case_study(){
+        $data['case_studies'] = CaseStudy::latest()->get();
+        return view('front.pages.case_study')->with($data);
+    }
+    public function contact_us(){
 
-    public function contact(Request $request){
+        return view('front.pages.contact_us');
+    }
+
+    public function store(Request $request){
 
         if ($this->contactValidate($request)) {
             Contact_Message::insert([

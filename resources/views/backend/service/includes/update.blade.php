@@ -33,6 +33,11 @@
                         <label for="message-text" class="control-label">Description</label>
                         <textarea rows='7' class="form-control" id="message-text1" placeholder="Enter your Description" name="description">{{ $service->description }}</textarea>
                     </div>
+                    <div class="form-group text-left">
+                        <label for="message-text" class="control-label ">Photo</label>
+                        <input type="file" id="input-file-now-custom-3" name="photo" class="dropify" value="{{ asset($service->photo) }}"
+                            data-height="150" data-default-file="{{ asset($service->photo) }}" />
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
