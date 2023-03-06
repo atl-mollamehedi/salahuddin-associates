@@ -3,10 +3,18 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="blog_hero_banner">
-                <a href="">
-                    <img src="{{ asset('uploads/banner/blog_image.jpg') }}" alt="blog" class="img-fluid" width="100%">
-                </a>
+
+
+                <div class="bread">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{route('front.index')}}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('front.blog')}}">Blog</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Details</li>
+                    </ol>
+                </div>
+
             </div>
+
         </div>
     </div>
 
@@ -32,6 +40,10 @@
                         <span class="para">{{ $blog->tage }}</span>
                     </div>
 
+                    {{-- <div class="date">
+                        <span><i class="far fa-calendar-alt"></i> {{ $blog->created_at->format('Y M d') }}</span>
+                    </div> --}}
+
 
 
 
@@ -46,13 +58,12 @@
                             <p>{{ $blog->description }}</p>
                         </a>
                     </div>
+
                 </div>
             </div>
 
             <div class="col-lg-4">
                 @foreach ($blogs as $blog)
-
-                
                     <div class="single_blog_item">
                         <div class="single_blog_item_image">
                             <a href="">
