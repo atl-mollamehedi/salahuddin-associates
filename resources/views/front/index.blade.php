@@ -159,6 +159,10 @@
                     </div>
                 </div>
                 @endforeach
+                
+            </div>
+            <div class="read_more_button_margin" >
+                <a href="{{ route('front.service') }}" class="button-1">Read More</a>
             </div>
         </div>
     </section>
@@ -506,6 +510,9 @@
                  </div>
                  @endforeach
              </div>
+             <div class="read_more_button_margin" >
+                <a href="{{ route('front.case_study') }}" class="button-1">Read More</a>
+            </div>
          </div>
      </section>
      <!-- End Services Area -->
@@ -602,6 +609,9 @@
 
                 @include('front.includes.blog')
                 @endforeach
+            </div>
+            <div class="read_more_button_margin" >
+                <a href="{{ route('front.blog') }}" class="button-1">Read More</a>
             </div>
         </div>
     </section>

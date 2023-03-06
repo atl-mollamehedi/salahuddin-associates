@@ -26,9 +26,12 @@ use App\Http\Controllers\backend\TeamController;
 use App\Models\WeServe;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventCategoryController;
+use App\Http\Controllers\backend\InqueryController;
 use App\Http\Controllers\SectionController;
 use App\Models\Achievement;
 use App\Http\Middleware\Makedemo;
+use App\Models\Inquery;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -150,6 +153,15 @@ Route::group(['prefix' => '/dashboard', 'as' => 'backend.'], function () {
         Route::get('messages/unread', [ContactMessage::class, 'unread'])->name('unread');
         Route::get('messages/total_mails', [ContactMessage::class, 'total_mail'])->name('total_mail');
         Route::delete('messages/destroy/{id}', [ContactMessage::class, 'destroy'])->name('destroy');
+    });
+    Route::group(['prefix' => '/inquery', 'as' => 'inquery.'], function () {
+        Route::get('/', [InqueryController::class, 'index'])->name('index');
+        Route::get('details/{id}', [InqueryController::class, 'details'])->name('details');
+        Route::get('messages/star/{id}', [InqueryController::class, 'startstatus'])->name('star.status');
+        Route::get('messages/star', [InqueryController::class, 'star'])->name('star');
+        Route::get('messages/unread', [InqueryController::class, 'unread'])->name('unread');
+        Route::get('messages/total_mails', [InqueryController::class, 'total_mail'])->name('total_mail');
+        Route::delete('messages/destroy/{id}', [InqueryController::class, 'destroy'])->name('destroy');
     });
     //Achievement route
     Route::group(['prefix' => '/achievement', 'as' => 'achievement.'], function () {

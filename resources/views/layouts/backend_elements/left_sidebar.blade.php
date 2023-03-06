@@ -95,6 +95,12 @@
                     </a>
                 </li>
                 <li>
+                    <a class="waves-effect" href="{{ route('backend.inquery.index') }}" aria-expanded="false">
+                        <i class="far fa-circle text-success"></i>
+                        <span class="hide-menu">Inquery</span>
+                    </a>
+                </li>
+                <li>
                     <a class="waves-effect" href="{{ route('front.clear') }}" aria-expanded="false">
                         <i class="far fa-circle text-success"></i>
                         <span class="hide-menu">Cache Clear</span>
