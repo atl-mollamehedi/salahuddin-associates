@@ -26,7 +26,8 @@ use SebastianBergmann\LinesOfCode\Exception;
 class FrontendController extends Controller
 {
 
-    public function index(){
+    public function index()
+    {
         $data['categories'] = Category::latest()->get();
         $data['testimonials'] = Review::latest()->get();
         $data['portfolios'] = MyPortfolio::latest()->get();
@@ -34,31 +35,36 @@ class FrontendController extends Controller
         $data['skills'] = Skill::latest()->get();
         $data['services'] = Service::latest()->get()->take(3);
         $data['achievements'] = Achievement::latest()->get();
-        $data['resumes_educations'] = Resume::where('type',1)->latest()->get();
-        $data['resumes_experiences'] = Resume::where('type',2)->latest()->get();
+        $data['resumes_educations'] = Resume::where('type', 1)->latest()->get();
+        $data['resumes_experiences'] = Resume::where('type', 2)->latest()->get();
         $data['sliders'] = BannerSlider::latest()->first();
         $data['titles'] = banner_title::latest()->get();
         return view('front.index')->with($data);
     }
-    public function about(){
+    public function about()
+    {
         $data['skills'] = Skill::latest()->get();
         $data['achievements'] = Achievement::latest()->get();
         return view('front.pages.about')->with($data);
     }
-    public function experience(){
+    public function experience()
+    {
         $data['sliders'] = BannerSlider::latest()->first();
         return view('front.pages.experience')->with($data);
     }
-    public function service(){
+    public function service()
+    {
         $data['services'] = Service::latest()->get();
         return view('front.pages.service')->with($data);
     }
-    public function blog(){
+    public function blog()
+    {
         $data['blogs'] = Blog::latest()->get();
         return view('front.pages.blog')->with($data);
     }
 
-    public function blog_details($blog_id){
+    public function blog_details($blog_id)
+    {
         $blogs = Blog::all();
         $blog = Blog::find($blog_id);
         return view('front.pages.blog_details', [
@@ -67,20 +73,43 @@ class FrontendController extends Controller
         ]);
     }
 
-    public function case_study(){
-        $data['case_studies'] = CaseStudy::latest()->get();
-        return view('front.pages.case_study')->with($data);
+    public function case_study()
+    {
+        // $data['caseStudies'] = CaseStudy::latest()->get();
+        $casestudies = CaseStudy::all();
+        // return view('front.pages.case_study')->with($data);
+        return view('front.pages.case_study', [
+            'casestudies' => $casestudies,
+        ]);
     }
-    public function contact_us(){
+
+    public function cs_details($id)
+    {
+        $casestudies = CaseStudy::all();
+        $casestudy = CaseStudy::findOrFail($id);
+
+        return view('front.pages.cs_details', [
+            'casestudy' => $casestudy,
+            'casestudies' => $casestudies,
+        ]);
+    }
+
+
+
+
+    public function contact_us()
+    {
 
         return view('front.pages.contact_us');
     }
-    public function inquery_index(){
-$data['services'] = Service::latest()->get();
+    public function inquery_index()
+    {
+        $data['services'] = Service::latest()->get();
         return view('front.pages.inquery')->with($data);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         if ($this->contactValidate($request)) {
             Contact_Message::insert([
@@ -94,10 +123,9 @@ $data['services'] = Service::latest()->get();
             Toastr::success('Success', 'Message Sent Successfully');
             return back();
         }
-
-
     }
-    public function inquery_store(Request $request){
+    public function inquery_store(Request $request)
+    {
         if ($this->contactValidate($request)) {
             Inquery::insert([
                 'service_id' => $request->service_id,
@@ -114,10 +142,9 @@ $data['services'] = Service::latest()->get();
             Toastr::success('Success', 'Message Sent Successfully');
             return back();
         }
-
-
     }
-    public function clear(){
+    public function clear()
+    {
         Artisan::call('cache:clear');
         Artisan::call('config:cache');
         Artisan::call('route:clear');
@@ -127,8 +154,9 @@ $data['services'] = Service::latest()->get();
         return back();
         Toastr::success('Success', ' Cache clear Successfully');
     }
-    public function contactValidate($request){
-      return  $request->validate([
+    public function contactValidate($request)
+    {
+        return  $request->validate([
             'name' => ['required'],
             'email' => ['required'],
             'number' => ['required'],
@@ -136,5 +164,4 @@ $data['services'] = Service::latest()->get();
             'message' => ['required'],
         ]);
     }
-
 }

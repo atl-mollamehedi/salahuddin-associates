@@ -218,54 +218,6 @@
     </section>
     @endif
 
-    <!-- End Resume Area -->
-    <!-- Start Portfolio Area -->
-    {{-- @if (section__status('Portfolio') == 1)
-    <section class="portfolio-area pt-20 pb-20" id="portfolio">
-        <div class="container">
-            <!-- Section Headding -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-headding mb-40 text-center">
-                        <h2>{{ __("Our Portfolio") }}</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="portfolio-category mb-40 text-center">
-                    <ul>
-                        <li data-filter="all">{{ __("All") }}</li>
-                        @foreach ($categories as $category)
-
-                        <li data-filter=".{{ $category->slug }}">{{ $category->name }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="row portfolio-full portF">
-                    @foreach ($portfolios as $portfolio)
-                    <!-- Single -->
-                    <div class="col-lg-4 col-md-6 mb-30 mix {{$portfolio->category->slug}}">
-                        <div class="portfolio-item">
-                            <img src="{{ asset('uploads/portfolio') }}/{{ $portfolio->image }}" alt="{{ $portfolio->image }}">
-                            <div class="portfolio-item-overly">
-                                <div class="portfolio-item-overly-full">
-                                    <a href="jqury:0;" data-bs-toggle="modal" data-bs-target="#portfoliod_{{ $portfolio->id }}"><i
-                                            class="fas fa-search-plus"></i></a>
-                                    <a href="{{ $portfolio->link }}" >
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @include('front.includes.portfolio')
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </section>
-    @endif --}}
-    <!-- Start Hero Area -->
     <section class="hero-area   section-bg" id="project_done">
         <div class="container-fluid">
             <div class="row m-0">
@@ -284,7 +236,7 @@
                                 <li>IPDC </li>
                             </ul>
                                 <a class="button-1" href="{{ route('front.experience') }}">Read More</a>
-                        
+
                         </div>
                         <div class="experience_item">
                             <h4 class="left-border-s text-white">{{ __('Our Diversified Experiences With Happy Clients') }}</h4>
@@ -297,7 +249,7 @@
                                 <li>IPDC </li>
                             </ul>
                                 <a class="button-1" href="{{ route('front.experience') }}">Read More</a>
-                        
+
                         </div>
                         <div class="experience_item">
                             <h4 class="left-border-s text-white">{{ __('Our Diversified Experiences With Happy Clients') }}</h4>
@@ -310,7 +262,7 @@
                                 <li>IPDC </li>
                             </ul>
                                 <a class="button-1" href="{{ route('front.experience') }}">Read More</a>
-                        
+
                         </div>
                         </div>
                    </div>
@@ -323,7 +275,7 @@
                         <img src="{{ asset($sliders->photo) }}" alt="img" class="img-fluid">
                         <img src="{{ asset($sliders->photo) }}" alt="img" class="img-fluid">
                         <img src="{{ asset($sliders->photo) }}" alt="img" class="img-fluid">
-                       
+
                        <!-- Image -->
 
                     </div>
@@ -336,7 +288,6 @@
     <!-- End Hero Area -->
     <!-- End Portfolio Area -->
      <!-- Start Services Area -->
-     @if (section__status('Service') == 1)
      <section class="services-area pt-40 pb-20" id="services">
          <div class="container">
              <!-- Section Headding -->
@@ -367,8 +318,6 @@
              </div>
          </div>
      </section>
-     @endif
-
      <!-- End Services Area -->
 
 

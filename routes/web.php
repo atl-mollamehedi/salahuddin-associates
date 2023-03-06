@@ -51,14 +51,16 @@ Route::group(['prefix' => '/', 'as' => 'front.'], function () {
     Route::get('/blog/details/{blog_id}', [FrontendController::class, 'blog_details'])->name('blog_details');
 
     Route::get('/case-study', [FrontendController::class, 'case_study'])->name('case_study');
-    Route::match(['get','post'],'/contact', [FrontendController::class, 'store'])->name('contact');
+
+    Route::get('/case-study/details/{cs_id}', [FrontendController::class, 'cs_details'])->name('cs_details');
+
+    Route::match(['get', 'post'], '/contact', [FrontendController::class, 'store'])->name('contact');
     Route::get('/contact-us', [FrontendController::class, 'contact_us'])->name('contact_us');
     Route::group(['prefix' => '/inquery', 'as' => 'inquery.'], function () {
         Route::get('/',  [FrontendController::class, 'inquery_index'])->name('index');
         Route::post('/store',  [FrontendController::class, 'inquery_store'])->name('store');
     });
     Route::get('clear',  [FrontendController::class, 'clear'])->name('clear');
-
 });
 
 // admin routes
@@ -159,7 +161,7 @@ Route::group(['prefix' => '/dashboard', 'as' => 'backend.'], function () {
     Route::group(['prefix' => '/section', 'as' => 'section.'], function () {
         Route::get('/', [SectionController::class, 'index'])->name('index');
         Route::get('/update/section/status/{id}', [SectionController::class, 'sectionOnOff'])->name('update');
-   });
+    });
 });
 
 
