@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\front;
 
-use App\Http\Controllers\Controller;
-use App\Models\Achievement;
-use App\Models\banner_title;
-use App\Models\BannerSlider;
+use Artisan;
+use Carbon\Carbon;
 use App\Models\Blog;
 use App\Models\CaseStudy;
 use App\Models\Category;
@@ -14,22 +12,26 @@ use App\Models\MyPortfolio;
 use App\Models\Resume;
 use App\Models\Review;
 use App\Models\Service;
-use App\Models\Skill;
-use Carbon\Carbon;
+use App\Models\Achievement;
+use App\Models\banner_title;
+use App\Models\BannerSlider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Models\Skill;
 use Brian2694\Toastr\Facades\Toastr;
-use Artisan;
+use SebastianBergmann\LinesOfCode\Exception;
 
 class FrontendController extends Controller
 {
-   
+
     public function index(){
         $data['categories'] = Category::latest()->get();
         $data['testimonials'] = Review::latest()->get();
         $data['portfolios'] = MyPortfolio::latest()->get();
-        $data['blogs'] = Blog::latest()->get();
+        $data['blogs'] = Blog::latest()->get()->take(3);
         $data['skills'] = Skill::latest()->get();
-        $data['services'] = Service::latest()->get();
+        $data['services'] = Service::latest()->get()->take(3);
         $data['achievements'] = Achievement::latest()->get();
         $data['resumes_educations'] = Resume::where('type',1)->latest()->get();
         $data['resumes_experiences'] = Resume::where('type',2)->latest()->get();
@@ -55,7 +57,7 @@ class FrontendController extends Controller
         return view('front.pages.case_study')->with($data);
     }
     public function contact_us(){
-        
+
         return view('front.pages.contact_us');
     }
 
@@ -73,8 +75,6 @@ class FrontendController extends Controller
             Toastr::success('Success', 'Message Sent Successfully');
             return back();
         }
-        
-      
     }
     public function clear(){
         Artisan::call('cache:clear');
@@ -95,5 +95,5 @@ class FrontendController extends Controller
             'message' => ['required'],
         ]);
     }
-    
+
 }

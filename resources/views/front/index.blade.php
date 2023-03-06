@@ -21,16 +21,63 @@
                         <img src="{{ asset($sliders->photo) }}" alt="img" class="">
                         {{-- @endforeach --}}
                        <!-- Image -->
-                        
+
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </section>
     @endif
     <!-- End Hero Area -->
-
+<div id="support">
+    <div class="container">
+         <!-- Counter Area -->
+ <div class="row">
+    <!-- Counter ITEM -->
+    <div class="col-lg-4 col-sm-4 mb-30">
+        <div class="counter-item">
+            <div class="icon">
+                <i class="fa fa-hand-holding-usd"></i>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h2 class="counte">Saving Strategies</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit sed do eiusmod tempor incididunt ut labore et</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 mb-30">
+        <div class="counter-item center">
+            <div class="icon">
+                <i class="fa fa-book-reader"></i>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h2 class="counte">Competitive Price</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit sed do eiusmod tempor incididunt ut labore et</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 mb-30">
+        <div class="counter-item">
+            <div class="icon">
+                <i class="fa fa-chalkboard-teacher"></i>
+            </div>
+            <div class="content">
+                <div class="title">
+                    <h2 class="counte">24/7 Support</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consecte adipiscing elit sed do eiusmod tempor incididunt ut labore et</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Counter Area -->
+    </div>
+</div>
 
     <!-- Start About Area -->
     @if (section__status('About') == 1)
@@ -67,7 +114,7 @@
                                 <!-- col-6 -->
                                 <div class="about-cn">
                                     <ul>
-                                        
+
                                         <li><i class="far fa-envelope"></i>{{ setting()->email }}</li>
                                         <li><i class="fab fa-whatsapp"></i> {{ setting()->number }}</li>
                                     </ul>
@@ -76,64 +123,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- About Your Skill -->
-                @if (section__status('Skill') == 1)
-                <div class="col-lg-12 mb-40">
-                    <div class="about-your-skill">
-                        <div class="row">
-                            @foreach ($skills as $skill)
-                            <div class="col-md-6">
-                                <!-- Single -->
-                                <div class="progress-bars wow fadeInUp" data-wow-delay=".1s">
-                                    <div class="single-progress">
-                                        <h3>{{ $skill->name }}</h3>
-                                        <div class="progress">
-                                            <div class="progress-bar wow" style="width: {{ $skill->percentage }}%">
-                                                <span class="percent" color="{{ $skill->color_dark }}" data="{{ $skill->color_dark }}">{{ $skill->percentage }}%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                @endif
-                <!-- Counter Area -->
-                @if (section__status('Achievement') == 1)
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-headding mb-40 text-center">
-                            <h2>{{ __("Our Achievement") }}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    @foreach ($achievements as $achievement)
-                    <!-- Counter ITEM -->
-                    <div class="col-lg-3 col-sm-6 mb-30">
-                        <div class="counter-item">
-                            <div class="icon">
-                                <i class="{{ $achievement->icon }}"></i>
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <h2 class="counter">{{ $achievement->count }}</h2>
-                                </div>
-                                <p>{{ $achievement->name }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-                @endif
-                <!-- Counter Area -->
             </div>
         </div>
     </section>
     @endif
-    
+
     <!-- End About Area -->
     <!-- Start Services Area -->
     @if (section__status('Service') == 1)
@@ -148,15 +142,18 @@
                 </div>
             </div>
             <div class="row">
-                @foreach ($services as $service)
+                @foreach ($services->take(3) as $service)
                 <!-- Services Single -->
-                <div class="col-lg-4 col-md-6 mb-30">
-                    <div class="services-box">
-                        <div class="icon">
-                            <i class="{{ $service->icon }}"></i>
+                <div class="col-lg-4 col-md-6 mb-30 custom_services">
+                    <div class="services_bg_img">
+                        <img src="{{asset('uploads/services/services1.jpg')}}" alt="service img">
+                        <div class="services-box">
+                            <div class="icon">
+                                <i class="{{ $service->icon }}"></i>
+                            </div>
+                            <h2>{{ $service->name }}</h2>
+                            <p>{{ $service->description }}</p>
                         </div>
-                        <h2>{{ $service->name }}</h2>
-                        <p>{{ $service->description }}</p>
                     </div>
                 </div>
                 @endforeach
@@ -164,7 +161,7 @@
         </div>
     </section>
     @endif
-   
+
     <!-- End Services Area -->
     <!-- Start Resume Area -->
     @if (section__status('Resume') == 1)
@@ -184,7 +181,7 @@
                         <h3>{{ __('Education') }} </h3>
                         <div class="resume__list">
                             @foreach ($resumes_educations as $resumes_education)
-                            
+
                             <!-- Single -->
                             <div class="single-resume__list  wow fadeInUp">
                                 <div class="year">
@@ -218,7 +215,7 @@
         </div>
     </section>
     @endif
-   
+
     <!-- End Resume Area -->
     <!-- Start Portfolio Area -->
     @if (section__status('Portfolio') == 1)
@@ -237,7 +234,7 @@
                     <ul>
                         <li data-filter="all">{{ __("All") }}</li>
                         @foreach ($categories as $category)
-                            
+
                         <li data-filter=".{{ $category->slug }}">{{ $category->name }}</li>
                         @endforeach
                     </ul>
@@ -266,7 +263,7 @@
         </div>
     </section>
     @endif
-   
+
     <!-- End Portfolio Area -->
 
     <!-- Start Latest Blog Area -->
@@ -294,7 +291,7 @@
                         <div class="content">
                             <div class="meta">
                                 <span><a href="javascript:void(0)"><i class="fas fa-user"></i> by: {{ $blog->user->name }}</a></span>
-                                <span><a href="javascript:void(0)"><i class="fas fa-tags"></i> 
+                                <span><a href="javascript:void(0)"><i class="fas fa-tags"></i>
                                     @php
                                     $tages = json_decode($blog->tage, true);
                                    $tage_data = '';
@@ -330,7 +327,7 @@
                         <div class="content">
                             <div class="meta">
                                 <span><a href="javascript:void(0)"><i class="fas fa-user"></i> by: {{ $blog->user->name }}</a></span>
-                                <span><a href="javascript:void(0)"><i class="fas fa-tags"></i> 
+                                <span><a href="javascript:void(0)"><i class="fas fa-tags"></i>
                                     @php
                                     $tages = json_decode($blog->tage, true);
                                    $tage_data = '';
@@ -356,14 +353,14 @@
                     </div>
                 </div>
                 @endif
-                
+
                 @include('front.includes.blog')
                 @endforeach
             </div>
         </div>
     </section>
     @endif
-    
+
     <!-- End Latest Blog Area -->
         <!-- Start Testimonial Area -->
         @if (section__status('Review') == 1)
@@ -390,7 +387,7 @@
                                 @else
                                 <p>{{ $testimonial->review_text }}</p>
                                 @endif
-                                
+
                                 <h2>{{ $testimonial->name }}</h2>
                                 <h4>{{ $testimonial->title }}</h4>
                             </div>
@@ -404,7 +401,7 @@
             </div>
         </section>
         @endif
-        
-     
+
+
 
 @endsection
