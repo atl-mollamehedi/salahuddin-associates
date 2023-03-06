@@ -1,4 +1,4 @@
-@extends('front.layouts.front_app');
+@extends('front.layouts.front_app')
 @section('front_content')
     <!-- Start Hero Area -->
     @if (section__status('Banner') == 1)

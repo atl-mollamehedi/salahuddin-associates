@@ -18,6 +18,7 @@ use App\Models\BannerSlider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Inquery;
 use App\Models\Skill;
 use Brian2694\Toastr\Facades\Toastr;
 use SebastianBergmann\LinesOfCode\Exception;
@@ -74,11 +75,35 @@ class FrontendController extends Controller
 
         return view('front.pages.contact_us');
     }
+    public function inquery_index(){
+$data['services'] = Service::latest()->get();
+        return view('front.pages.inquery')->with($data);
+    }
 
     public function store(Request $request){
 
         if ($this->contactValidate($request)) {
             Contact_Message::insert([
+                'name' => $request->name,
+                'email' => $request->email,
+                'number' => $request->number,
+                'subject' => $request->subject,
+                'message' => $request->message,
+                'created_at' => Carbon::now()
+            ]);
+            Toastr::success('Success', 'Message Sent Successfully');
+            return back();
+        }
+
+
+    }
+    public function inquery_store(Request $request){
+        if ($this->contactValidate($request)) {
+            Inquery::insert([
+                'service_id' => $request->service_id,
+                'date' => $request->date,
+                'start' => $request->start,
+                'end' => $request->end,
                 'name' => $request->name,
                 'email' => $request->email,
                 'number' => $request->number,

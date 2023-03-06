@@ -1,11 +1,11 @@
-@extends('front.layouts.front_app');
+@extends('front.layouts.front_app')
 @section('front_content')
 
     <div class="py-3">
     <!-- Start Hero Area -->
     <section class="hero-area bg-white" id="project_done">
         <div class="">
-            <div class="row m-0">
+            <div class="row">
                 <!-- Hero Content -->
                 <div class="col-lg-6 order-lg-first order-last align-self-center d-flex justify-content-center ">
                     <div class="hero-caption w-75">
