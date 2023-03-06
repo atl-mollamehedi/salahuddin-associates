@@ -51,6 +51,8 @@
 
             <div class="col-lg-4">
                 @foreach ($blogs as $blog)
+
+                
                     <div class="single_blog_item">
                         <div class="single_blog_item_image">
                             <a href="">
@@ -66,6 +68,8 @@
 
                             <span><i class="fas fa-tags"></i></span>
                             <span class="para">{{ $blog->tage }}</span>
+
+
                         </div>
 
 
@@ -73,14 +77,15 @@
 
                         <div class="single_blog_item_title">
                             <a href="">
-                                <h5>
-                                    {{ $blog->name }}</h5>
+                                <h6>
+                                    {{ $blog->name }}</h6>
                             </a>
                         </div>
                         <div class="single_blog_item_text">
                             <a href="">
-                                <p>{{ $blog->description }}</p>
+                                <p>{{ Str::limit($blog->description) }}</p>
                             </a>
+
                         </div>
                     </div>
                 @endforeach
