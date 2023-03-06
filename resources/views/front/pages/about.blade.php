@@ -1,6 +1,23 @@
-@extends('front.layouts.front_app');
+@extends('front.layouts.front_app')
 @section('front_content')
+<section id="breadcumb">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="blog_hero_banner">
 
+
+                <div class="bread">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('front.index') }}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">About</li>
+                    </ol>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+  </section>
     <!-- Start About Area -->
     @if (section__status('About') == 1)
     <section class="about-area pt-40 page_top_space" id="about">

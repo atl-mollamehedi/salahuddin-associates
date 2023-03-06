@@ -9,7 +9,7 @@
                 <div class="bread">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('front.index') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                        <li class="breadcrumb-item active" aria-current="page">Inquery</li>
                     </ol>
                 </div>
 
@@ -19,8 +19,7 @@
     </div>
   </section>
 <!-- Start Contact Area -->
-@if (section__status('Contact') == 1)
-<section class="contact-area page_top_space pb-50" id="contact">
+<section class="contact-area page_top_space pb-50" id="inquery">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -40,34 +39,74 @@
                             @endforeach
                         </div>
                     @endif
-                    <form action="{{ route('front.contact') }}" method="post">
+                    <form action="{{ route('front.inquery.store') }}" method="post">
                         @csrf
                         <div class="row">
+                           
                             <div class="col-md-6">
+                                <label for="">Service</label>
+                                <div class="single-input">
+                                    <select class="form-select" name="service_id">
+                                        <option value="">Select One</option>
+                                        @foreach ($services as $service)
+                                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Date</label>
+                                <div class="single-input">
+                                    <input type="date" name="date" placeholder="Your Date">
+                                    <i class="far fa-date"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Start Time</label>
+                                <div class="single-input">
+                                    <input type="time" name="start" placeholder="Your Start Time">
+                                    <i class="far fa-times"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">End Time</label>
+                                <div class="single-input">
+                                    <input type="time" name="end" placeholder="Your End Time">
+                                    <i class="far fa-times"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Name</label>
                                 <div class="single-input">
                                     <input type="text" name="name" placeholder="Your Name">
                                     <i class="fas fa-user"></i>
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <label for="">Email</label>
                                 <div class="single-input">
                                     <input type="email" name="email" placeholder="Your Email">
                                     <i class="far fa-envelope"></i>
                                 </div>
                             </div>
+                            
                             <div class="col-md-6">
+                                <label for="">Number</label>
                                 <div class="single-input">
                                     <input type="text" name="number" placeholder="Your Phone">
                                     <i class="fas fa-mobile-alt"></i>
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <label for="">Subject</label>
                                 <div class="single-input">
                                     <input type="text" name="subject" placeholder="Your Subjects">
                                     <i class="fas fa-file-alt"></i>
                                 </div>
                             </div>
                             <div class="col-12">
+                                <label for="">Description</label>
                                 <div class="single-input">
                                     <textarea name="message" placeholder="Write Message" spellcheck="false"></textarea>
                                     <i class="fas fa-pen"></i>
@@ -118,7 +157,6 @@
         </div>
     </div>
 </section>
-@endif
 
 <!-- End Contact Area -->
 @endsection
