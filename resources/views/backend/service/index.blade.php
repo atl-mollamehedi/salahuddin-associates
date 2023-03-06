@@ -61,6 +61,8 @@
                                         <div class="col-lg-12">
                                             <div class="card border-dark">
                                                 <div class="card-body text-center">
+                                                    <img class="mb-3 card-img-top img-responsive" src="{{ asset($service->photo) }}"
+                                                    alt="Card image cap">
                                                     <h2><i class="{{ $service->icon }}"></i></h2>
                                                     <h3>{{ $service->name }}</h3>
                                                     <p class="card-text">{{ $service->description }}</p>

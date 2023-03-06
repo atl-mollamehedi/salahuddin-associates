@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\AboutController;
+use App\Http\Controllers\backend\CaseStudyController;
 use App\Http\Controllers\backend\BlogController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\ContactMessage;
@@ -42,12 +43,18 @@ use App\Http\Middleware\Makedemo;
 
 Route::group(['prefix' => '/', 'as' => 'front.'], function () {
     Route::get('/', [FrontendController::class, 'index'])->name('index');
-    Route::match(['get','post'],'/contact', [FrontendController::class, 'contact'])->name('contact');
+    Route::get('/about', [FrontendController::class, 'about'])->name('about');
+    Route::get('/service', [FrontendController::class, 'service'])->name('service');
+    Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
+    Route::get('/case-study', [FrontendController::class, 'case_study'])->name('case_study');
+    Route::match(['get','post'],'/contact', [FrontendController::class, 'store'])->name('contact');
+    Route::get('/contact-us', [FrontendController::class, 'contact_us'])->name('contact_us');
     Route::get('clear',  [FrontendController::class, 'clear'])->name('clear');
+
 });
 
 // admin routes
-Route::group(['prefix' => '/dashboard', 'as' => 'backend.','middleware' => 'Makedemo'], function () {
+Route::group(['prefix' => '/dashboard', 'as' => 'backend.'], function () {
     Route::resource('/logo', LogoController::class);
     Route::get('/socialmedias', [SocialMediaController::class, 'index'])->name('social.index');
     Route::put('/socialmedias/update/{id}', [SocialMediaController::class, 'update'])->name('social.update');
@@ -93,6 +100,7 @@ Route::group(['prefix' => '/dashboard', 'as' => 'backend.','middleware' => 'Make
     Route::resource('resume', ResumeController::class);
     Route::resource('review', ReviewController::class);
     Route::resource('blog', BlogController::class);
+    Route::resource('case_study', CaseStudyController::class);
     //skill route
     Route::group(['prefix' => '/skill', 'as' => 'skill.'], function () {
         Route::get('/', [SkillController::class, 'index'])->name('index');

@@ -15,12 +15,7 @@ class MakeDemo
      */
     public function handle($request, Closure $next)
     {
-        if($request->isMethod('post') || $request->isMethod('put') || $request->isMethod('destroy')){
-            Toastr::error('Access denied', 'You do not have the permission to create');
-            return redirect()->back()->withErrors('You do not have the permission to create');
-        }else{
-             return $next($request);
-        }
+        return $next($request);
        
 
     }

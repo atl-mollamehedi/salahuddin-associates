@@ -4,7 +4,7 @@
             <!-- Logo -->
             <div class="col-lg-2 col-12 align-self-center">
                 <div class="logo">
-                    <a href="">
+                    <a href="{{ route('front.index') }}">
                         <img src="{{ setting()->logo }}"/>
                     </a>
                 </div>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="dl-cv">
-                    <a class="button-1" download href="{{  asset(setting()->cv) }}">{{ __('Download CV') }}</a>
+                    <a class="button-1" download href="{{  asset(setting()->cv) }}"> <i class="fas fa-download"></i> {{ __(' Company Profile') }}</a>
                 </div>
                
                 
@@ -41,12 +41,12 @@
                             </li>
                             @if (section__status('About') == 1) 
                             <li class="nav-item">
-                                <a class="nav-link" href="#about">{{ __('About Me') }}</a>
+                                <a class="nav-link" href="{{ route('front.about') }}">{{ __('About') }}</a>
                             </li>
                             @endif
                             @if (section__status('Service') == 1) 
                             <li class="nav-item">
-                                <a class="nav-link" href="#services">{{ __('Services') }}</a>
+                                <a class="nav-link" href="{{ route('front.service') }}">{{ __('Services') }}</a>
                             </li>
                             @endif
                             @if (section__status('Portfolio') == 1) 
@@ -56,12 +56,13 @@
                             @endif
                             @if (section__status('Blog') == 1) 
                             <li class="nav-item">
-                                <a class="nav-link" href="#blog">{{ __('Blog') }}</a>
+                                <a class="nav-link" href="{{ route('front.blog') }}">{{ __('Blog') }}</a>
                             </li>
                             @endif
+                            
                             @if (section__status('Contact') == 1) 
                             <li class="nav-item">
-                                <a class="nav-link" href="#contact">{{ __('Contact Us') }}</a>
+                                <a class="nav-link" href="{{ route('front.contact_us') }}">{{ __('Contact Us') }}</a>
                             </li>
                             @endif
                             <li class="nav-item">
