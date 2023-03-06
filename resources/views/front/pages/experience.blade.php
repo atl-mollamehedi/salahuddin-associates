@@ -1,15 +1,14 @@
-@extends('front.layouts.front_app');
+@extends('front.layouts.front_app')
 @section('front_content')
 
     <!-- Start Hero Area -->
     <section class="hero-area   bg-white" id="project_done">
         <div class="">
-            <div class="row m-0">
+            <div class="row">
                 <!-- Hero Content -->
                 <div class="col-lg-6 order-lg-first order-last align-self-center d-flex justify-content-center ">
                     <div class="hero-caption w-75">
-                        {{-- <h4 class="left-border-s text-white">{{ __('Banks and Financial Institution
-                            ') }}</h4> --}}
+                        <h4 class="left-border-s text-dark">{{ __('Experience ') }}</h4>
                         <h2 class=" text-text-dark">Banks and Financial Institution</h2>
                        <ul style="list-style:circle;color:rgb(19, 19, 19);padding:10px 0px 10px 45px">
                         <li>The Hongkong and Shanghai Banking Corporation Ltd.(HSBC), Bangladesh Branch </li>

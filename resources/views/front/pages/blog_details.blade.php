@@ -1,5 +1,6 @@
-@extends('front.layouts.front_app');
+@extends('front.layouts.front_app')
 @section('front_content')
+  <section id="breadcumb">
     <div class="row">
         <div class="col-lg-12">
             <div class="blog_hero_banner">
@@ -17,6 +18,7 @@
 
         </div>
     </div>
+  </section>
 
 
     <div class="container">
