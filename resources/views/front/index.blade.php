@@ -302,6 +302,43 @@
     </section>
     <!-- End Hero Area -->
     <!-- End Portfolio Area -->
+     <!-- Start Services Area -->
+     @if (section__status('Service') == 1)
+     <section class="services-area pt-40 pb-20" id="services">
+         <div class="container">
+             <!-- Section Headding -->
+             <div class="row">
+                 <div class="col-lg-12">
+                     <div class="section-headding mb-40 text-center">
+                        <p>Case Studies</p>
+                         <h2>Project We Have Done</h2>
+                     </div>
+                 </div>
+             </div>
+             <div class="row">
+                 @foreach ($services->take(3) as $service)
+                 <!-- Services Single -->
+                 <div class="col-lg-4 col-md-6 mb-30 custom_services">
+                     <div class="services_bg_img">
+                         <img src="{{asset('uploads/services/services1.jpg')}}" alt="service img">
+                         <div class="services-box">
+                             <div class="icon">
+                                 <i class="{{ $service->icon }}"></i>
+                             </div>
+                             <h2>{{ $service->name }}</h2>
+                             <p>{{ $service->description }}</p>
+                         </div>
+                     </div>
+                 </div>
+                 @endforeach
+             </div>
+         </div>
+     </section>
+     @endif
+
+     <!-- End Services Area -->
+
+
 
     <!-- Start Latest Blog Area -->
     @if (section__status('Blog') == 1)
