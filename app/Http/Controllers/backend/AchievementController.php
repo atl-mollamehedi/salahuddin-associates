@@ -11,8 +11,8 @@ class AchievementController extends Controller
 {
     public function store(Request $request){
         $this->validate($request,[
-            'name' => 'required|string|max:20',
-            'count' => 'required|max:8"',
+            'name' => 'required|string|max:100',
+            'count' => 'required|max:50"',
             'icon' => 'required',
         ]);
         $achieve = new Achievement();
@@ -25,8 +25,8 @@ class AchievementController extends Controller
     }
     public function update(Request $request, $id){
         $request->validate([
-            'name' => 'required|string|max:20',
-            'count' => 'required|max:8"',
+            'name' => 'required|string|max:100',
+            'count' => 'required|max:50"',
         ]);
         $achieve = Achievement::find($id);
         $achieve->name = $request->name;

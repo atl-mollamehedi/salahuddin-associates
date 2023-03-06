@@ -625,16 +625,21 @@ img{
 /*
  * #-Services
 */
+#services{
+    margin: 0 0 130px;
+}
 .services-box {
-	width: 100%;
+	max-width: 100%;
 	border: 2px solid #eeeeee7d;
 	-webkit-transition: all .4s ease-in-out;
 	transition: all .4s ease-in-out;
-	padding: 30px 40px;
+	padding: 40px;
 	position: relative;
 	text-align: center;
-	width: 98%;
-	margin: 1%;
+	width: 80%;
+	margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 16px rgba(0,0,0, 0.3);
 }
 .services-box:hover {
 	border-color: transparent;
@@ -691,6 +696,50 @@ img{
 .services-box:hover p{
 	color: #fff;
 }
+.services_bg_img{
+    position: relative;
+}
+.services_bg_img .services-box{
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    z-index: 1;
+}
+
+@media (max-width: 991px){
+    .services_bg_img .services-box{
+        top: 50%;
+    }
+    .services_bg_img{
+        margin-bottom: 150px !important;
+    }
+    .custom_services:last-child .services_bg_img{
+        margin-bottom: 20px !important;
+    }
+}
+@media (max-width: 767px){
+    .services_bg_img{
+        margin-bottom: 30px !important;
+    }
+    .custom_services:last-child .services_bg_img{
+        margin-bottom: 0px !important;
+    }
+    #services{
+        margin: 0 0 50px;
+    }
+}
+@media (max-width: 575px){
+    .services_bg_img{
+        margin-bottom: 100px !important;
+    }
+    .custom_services:last-child .services_bg_img{
+        margin-bottom: 20px !important;
+    }
+    .services_bg_img .services-box{
+        top: 55%;
+    }
+}
+
 /*
  * #-Resume
 */
