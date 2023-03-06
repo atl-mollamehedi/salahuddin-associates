@@ -18,6 +18,7 @@ use App\Models\BannerSlider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Skill;
 use Brian2694\Toastr\Facades\Toastr;
 use SebastianBergmann\LinesOfCode\Exception;
 

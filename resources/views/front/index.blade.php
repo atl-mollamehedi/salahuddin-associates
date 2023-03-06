@@ -150,7 +150,7 @@
             <div class="row">
                 @foreach ($services->take(3) as $service)
                 <!-- Services Single -->
-                <div class="col-lg-4 col-md-6 mb-30">
+                <div class="col-lg-4 col-md-6 mb-30 custom_services">
                     <div class="services_bg_img">
                         <img src="{{asset('uploads/services/services1.jpg')}}" alt="service img">
                         <div class="services-box">
