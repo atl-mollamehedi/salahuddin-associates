@@ -22,7 +22,7 @@
                  @php
                      print_r($tage.' ');
                  @endphp
-                 @endforeach  
+                 @endforeach
             </a></span>
           </div>
             <p>{{ $blog->description }}</p>
