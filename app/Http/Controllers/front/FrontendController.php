@@ -32,6 +32,7 @@ class FrontendController extends Controller
         $data['testimonials'] = Review::latest()->get();
         $data['portfolios'] = MyPortfolio::latest()->get();
         $data['blogs'] = Blog::latest()->get()->take(3);
+        $data['casestudies'] = CaseStudy::latest()->get()->take(3);
         $data['skills'] = Skill::latest()->get();
         $data['services'] = Service::latest()->get()->take(3);
         $data['achievements'] = Achievement::latest()->get();
