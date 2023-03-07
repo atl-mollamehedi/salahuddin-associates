@@ -20,14 +20,33 @@
     </div>
   </section>
 
-<section class="pt-20 pb-20 blog-area page_top_space" id="case_study">
+<section class="services-area pt-40 pb_350" id="services">
     <div class="container">
+        <!-- Section Headding -->
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-headding mb-40 text-center">
-                    <h2>{{ __("Case Study") }}</h2>
+                   <p>Case Studies</p>
+                    <h2>Project We Have Done</h2>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            @foreach ($casestudies as $casestudy)
+            <!-- Services Single -->
+            <div class="col-lg-4 col-md-6 mb-30 custom_services">
+                <div class="services_bg_img">
+                    <a href="{{route('front.cs_details', $casestudy->id)}}"><img src="{{asset('uploads/services/services1.jpg')}}" alt="service img"></a>
+                    <div class="services-box">
+                        <div class="icon">
+                            <i class=""></i>
+                        </div>
+                        <a href="{{route('front.cs_details', $casestudy->id)}}"><h2>{{$casestudy->name}}</h2></a>
+                        <a href="{{route('front.cs_details', $casestudy->id)}}"><p >{{$casestudy->description}}</p></a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </section>

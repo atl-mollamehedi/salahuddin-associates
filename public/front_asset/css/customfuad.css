@@ -11,6 +11,11 @@
     justify-content: center;
     align-items: center;
 
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+
 }
 
 .blog_hero_banner .bread {
@@ -84,22 +89,37 @@
 small {
     color: #000000;
 
+
 }
 
 
-.user_items_sys i
-{
+.user_items_sys i {
     font-size: 12px;
     margin-right: 5px;
     margin-bottom: 20px;
 }
 
-.user_items_sys .parab{
+.user_items_sys a{
+    color: #000000;
+}
+
+.name_imp{
+    margin-bottom: 5px;
+}
+
+
+
+
+.user_items_sys .parab {
     font-size: 12px;
     margin-right: 20px;
     margin-bottom: 20px;
 }
 
-.super_card{
+.super_card {
     margin-bottom: 20px;
+}
+
+.pb_350 {
+    padding-bottom: 350px !important;
 }

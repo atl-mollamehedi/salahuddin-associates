@@ -1,24 +1,24 @@
 @extends('front.layouts.front_app')
 @section('front_content')
-  <section id="breadcumb">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="blog_hero_banner">
+    <section id="breadcumb">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="blog_hero_banner">
 
 
-                <div class="bread">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('front.index') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('front.blog') }}">Blog</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Details</li>
-                    </ol>
+                    <div class="bread">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ route('front.index') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('front.blog') }}">Blog</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Details</li>
+                        </ol>
+                    </div>
+
                 </div>
 
             </div>
-
         </div>
-    </div>
-  </section>
+    </section>
 
 
     <div class="container">
@@ -129,47 +129,54 @@
                             <div class="card-body">
 
 
-                                    <div class="user_items_sys">
+                                <div class="user_items_sys">
+
+                                    <a href="{{ route('front.blog_details', $blog->id) }}">
                                         <span><i class="fas fa-user"></i></span>
                                         <span class="parab">{{ $blog->user->name }}</span>
 
 
                                         <span><i class="fas fa-tags"></i></span>
                                         <span class="parab">{{ $blog->tage }}</span>
+                                    </a>
 
 
+
+                                </div>
+
+                                <div class="row">
+
+
+                                    <div class="col-lg-4">
+                                        <a href="{{ route('front.blog_details', $blog->id) }}">
+                                            <img src="{{ asset($blog->photo) }}" alt="" class="w-100 img-fluid">
+                                        </a>
                                     </div>
 
-                                    <div class="row">
+                                    <div class="col-lg-8">
 
+                                        <div>
 
-                                        <div class="col-lg-4">
-                                            <a href="">
-                                                <img src="{{ asset($blog->photo) }}" alt=""
-                                                    class="w-100 img-fluid">
-                                            </a>
-                                        </div>
-
-                                        <div class="col-lg-8">
-
-                                            <div>
-                                                <a href="">
+                                            <div class="name_imp">
+                                                <a  href="{{ route('front.blog_details', $blog->id) }}">
                                                     <h6>
                                                         {{ $blog->name }}</h6>
-                                                </a>
-
-
-                                                <a href="">
-                                                    <small>{{ Str::limit($blog->description, 65) }}</small>
                                                 </a>
                                             </div>
 
 
 
-
+                                            <a href="{{ route('front.blog_details', $blog->id) }}">
+                                                <small>{{ Str::limit($blog->description, 65) }}</small>
+                                            </a>
                                         </div>
+
+
+
+
                                     </div>
-                               
+                                </div>
+
 
 
 
