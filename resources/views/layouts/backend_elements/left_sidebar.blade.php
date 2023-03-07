@@ -59,7 +59,7 @@
                 <li>
                     <a class="waves-effect" href="{{ route('backend.resume.index') }}" aria-expanded="false">
                         <i class="far fa-circle text-success"></i>
-                        <span class="hide-menu">My Resume</span>
+                        <span class="hide-menu">Service Item</span>
                     </a>
                 </li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">

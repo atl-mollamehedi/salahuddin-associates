@@ -44,11 +44,8 @@
                     <thead>
                         <tr class="footable-header">
                             <th class="footable-first-visible" style="display: table-cell;">No</th>
-                            <th style="display: table-cell;">Start</th>
-                            <th style="display: table-cell;">End</th>
-                            <th style="display: table-cell;">Orgamization</th>
-                            <th style="display: table-cell;">Exprerience or Skill</th>
-                            <th style="display: table-cell;">Type</th>
+                            <th style="display: table-cell;">Service </th>
+                            <th style="display: table-cell;">Item Name</th>
                             <th style="display: table-cell;">Action</th>
                         </tr>
                     </thead>
@@ -56,11 +53,8 @@
                         @foreach ($resumes as $resume)
                             <tr>
                                 <td style="display: table-cell;">{{ $loop->index + 1 }}</td>
-                                <td style="display: table-cell;">{{ $resume->start_date }}</td>
-                                <td style="display: table-cell;">{{ $resume->end_date }}</td>
-                                <td style="display: table-cell;">{{ $resume->orgamization }}</td>
-                                <td style="display: table-cell;">{{ $resume->experience }}</td>
-                                <td style="display: table-cell;">{{ $resume->type == 1 ? 'Education' : 'Experience' }}</td>
+                                <td style="display: table-cell;">{{ $resume->service_id }}</td>
+                                <td style="display: table-cell;">{{ $resume->service_name }}</td>
                                 <td class="footable-last-visible" style="display: table-cell;">
 
                                     <button data-toggle="modal" data-target="#resume__updated_{{ $resume->id }}"

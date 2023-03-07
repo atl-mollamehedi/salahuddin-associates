@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('resumes', function (Blueprint $table) {
             $table->id();
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->string('orgamization');
-            $table->string('experience');
+            $table->integer('service_id');
+            $table->string('service_name');
             $table->timestamps();
         });
     }

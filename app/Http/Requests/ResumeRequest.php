@@ -26,11 +26,8 @@ class ResumeRequest extends FormRequest
     public function rules()
     {
         return [
-            'start_date' => ['required','date'],
-            'end_date' => ['required','date'],
-            'orgamization' => ['required'],
-            'experience' => ['required'],
-            'type' => ['required'],
+            'service_id' => ['required'],
+            'service_name' => ['required']
         ];
     }
    

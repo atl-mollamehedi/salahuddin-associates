@@ -7,6 +7,8 @@ use App\Models\Resume;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Http\Requests\ResumeRequest;
+use App\Models\Service;
+
 class ResumeController extends Controller
 {
     public function __construct()
@@ -21,6 +23,7 @@ class ResumeController extends Controller
     public function index()
     {
         $data['resumes'] = Resume::latest()->get();
+        $data['services'] = Service::latest()->get();
         return view('backend.resume.index')->with($data);
     }
 

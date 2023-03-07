@@ -11,7 +11,7 @@
                         <h4 class="left-border-s text-white">{{ __('Hello') }}</h4>
                         <h2 class=" text-white">{{ setting()->banner_name }}</h2>
                         <p class=" text-white">{{  setting()->banner_description }}</p>
-                        <button class="button-1">Contact Us</button>
+                        <a href="{{ route('front.inquery.index') }}" class="button-1">Appointment</a>
                    </div>
                 </div>
                 <!-- Hero Image -->
@@ -588,7 +588,7 @@
                 <div class="col-lg-4 col-md-6 mb-30">
                     <div class="blog-item">
                         <div class="thumbnail">
-                            <a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#blog_{{ $blog->id }}">
+                            <a href="{{ route('front.blog_details',$blog->id) }}">
                                 <img src="{{ asset($blog->photo) }}" alt="blog">
                             </a>
                         </div>
@@ -607,14 +607,14 @@
                                      @endforeach
                                 </a></span>
                             </div>
-                            <h2 class="title"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#blog_{{ $blog->id }}">{{ $blog->name }} </a></h2>
+                            <h2 class="title"><a href="{{ route('front.blog_details',$blog->id) }}">{{ $blog->name }} </a></h2>
                             <p>{{ Str::limit($blog->description, 45) }} </p>
                             <div class="btm-meta">
                                 <div class="date">
                                     <span><i class="far fa-calendar-alt"></i> {{ $blog->created_at->format('Y M d') }}</span>
                                 </div>
                                 <div class="read-more">
-                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#blog_{{ $blog->id }}">{{ __("Read More") }}</a>
+                                    <a href="{{ route('front.blog_details',$blog->id) }}">{{ __("Read More") }}</a>
                                 </div>
                             </div>
                         </div>
@@ -624,7 +624,7 @@
                 <div class="col-lg-4 col-md-6 mb-30">
                     <div class="blog-item">
                         <div class="thumbnail">
-                            <a href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#blog_{{ $blog->id }}">
+                            <a href="{{ route('front.blog_details',$blog->id) }}">
                                 <iframe src="{{ $blog->link }}" class="blog__ifram" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </a>
                         </div>
@@ -643,22 +643,20 @@
                                      @endforeach
                                 </a></span>
                             </div>
-                            <h2 class="title"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#blog_{{ $blog->id }}">{{ Str::limit($blog->name, 22) }} </a></h2>
+                            <h2 class="title"><a href="{{ route('front.blog_details',$blog->id) }}">{{ Str::limit($blog->name, 22) }} </a></h2>
                             <p>{{ Str::limit($blog->description, 45) }}</p>
                             <div class="btm-meta">
                                 <div class="date">
                                     <span><i class="far fa-calendar-alt"></i> {{ $blog->created_at->format('Y M d') }}</span>
                                 </div>
                                 <div class="read-more">
-                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#blog_{{ $blog->id }}">{{ __('Read More') }}</a>
+                                    <a href="{{ route('front.blog_details',$blog->id) }}">{{ __('Read More') }}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 @endif
-
-                @include('front.includes.blog')
                 @endforeach
             </div>
             <div class="read_more_button_margin" >

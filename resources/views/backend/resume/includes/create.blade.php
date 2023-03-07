@@ -10,32 +10,19 @@
             <form action="{{ route('backend.resume.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body text-left">
-
+                    <select class="form-control custom-select" name="service_id" data-placeholder="Choose One"
+                    tabindex="1">
+                    @foreach ($services as $service)
+                        
+                    <option value="{{ $service->id }}">{{ $service->name }}</option>
+                    @endforeach
+                </select>
                     <div class="form-group text-left">
-                        <label for="message-text" class="control-label">Start date</label>
-                        <input class="form-control" placeholder="Enter Your Start Date" id="mdate" data-dtp="dtp_LYPzY"
-                            name="start_date" />
-                    </div>
-                    <div class="form-group text-left">
-                        <label for="message-text" class="control-label">End date</label>
-                        <input class="form-control" placeholder="Enter Your End Date" id="end_date" data-dtp="dtp_LYPzY"
-                            name="end_date" />
-                    </div>
-                    <div class="form-group text-left">
-                        <label for="message-text" class="control-label">orgamization</label>
-                        <input class="form-control" id="message-text1" placeholder="Enter your Orgamization"
-                            name="orgamization" />
-                    </div>
-                    <div class="form-group text-left">
-                        <label for="message-text" class="control-label">experience</label>
+                        <label for="message-text" class="control-label">Service Item Name</label>
                         <input class="form-control" id="message-text1" placeholder="Enter your Experience"
-                            name="experience" />
+                            name="service_name" />
                     </div>
-                    <select class="form-control custom-select" name="type" data-placeholder="Choose One"
-                        tabindex="1">
-                        <option value="1">Education</option>
-                        <option value="2">Experience</option>
-                    </select>
+                   
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

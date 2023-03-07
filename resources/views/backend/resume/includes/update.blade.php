@@ -13,32 +13,18 @@
                 @csrf
                 @method('PUT')
                 <div class="modal-body text-left">
-
                     <div class="form-group text-left">
-                        <label for="message-text" class="control-label">Start date</label>
-                        <input class="form-control" placeholder="Enter Your Start Date" id="start_date_update" value="{{ $resume->start_date }}" data-dtp="dtp_LYPzY"
-                            name="start_date" />
+                        <label for="message-text" class="control-label">Service Name</label>
+                        <input class="form-control" placeholder="Enter Your Service Item" id="" value="{{ $resume->service_name }}"
+                            name="service_name" />
                     </div>
-                    <div class="form-group text-left">
-                        <label for="message-text" class="control-label">End date</label>
-                        <input class="form-control" placeholder="Enter Your End Date" id="end_date_update" data-dtp="dtp_LYPzY"
-                            name="end_date" value="{{ $resume->end_date }}"/>
-                    </div>
-                    <div class="form-group text-left">
-                        <label for="message-text" class="control-label">orgamization</label>
-                        <input class="form-control" id="message-text1" placeholder="Enter your Orgamization"
-                            name="orgamization" value="{{ $resume->orgamization }}" />
-                    </div>
-                    <div class="form-group text-left">
-                        <label for="message-text" class="control-label">experience</label>
-                        <input class="form-control" id="message-text1" placeholder="Enter your Experience"
-                            name="experience"  value="{{ $resume->experience }}"/>
-                    </div>
-                    <select class="form-control custom-select" name="type" data-placeholder="Choose One"
+                    
+                    <select class="form-control custom-select" name="service_id" data-placeholder="Choose One"
                         tabindex="1">
-                        <option value="1" {{ $resume->experience === 1? 'selected': ''  }}>Education</option>
-                        <option value="2" {{ $resume->experience === 2? 'selected': ''  }}>Experience</option>
-                    </select>
+                        @foreach ($services as $service) 
+                        <option value="{{ $service->id }}" {{ $service->id == $resume->service_id ? 'selected': ''  }}>Education</option>
+                        @endforeach
+                   </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
