@@ -370,6 +370,24 @@ img{
 	margin-bottom: 30px;
 	font-weight: 300;
 }
+@media (max-width: 1200px){
+
+}
+@media (max-width: 991px){
+    .order-last{
+        margin-bottom: 100px !important;
+        text-align: center;
+    }
+    .hero-caption{
+        width: 100% !important;
+    }
+}
+@media (max-width: 600px){
+    .about-img img{
+        display: none;
+    }
+}
+
 /*
  * #-Animation
  * heartbeat

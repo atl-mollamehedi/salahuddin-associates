@@ -90,7 +90,7 @@
             <div class="container">
                 <div class="row">
                     <!-- About Image -->
-                    <div class="col-lg-5 mb-40">
+                    <div class="col-sm-12 col-md-6 col-lg-5 mb-40">
                         <div class="about__area_img">
                             <div class="about-img wow fadeInUp" data-wow-delay="0.3s">
                                 <img src="{{ asset(setting()->about_image) }}" alt="img">
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <!-- About Content -->
-                    <div class="col-lg-7 align-self-center mb-40">
+                    <div class="col-sm-12 col-md-6 col-lg-7 align-self-center mb-40">
                         <div class="about-content wow fadeInUp">
                             <h4 class="left-border-s">{{ __('About Me') }}</h4>
                             <h2>{{ setting()->about_title }}</h2>
@@ -545,7 +545,7 @@
                                 </a>
                             </div>
                             <div class="content">
-                                
+
                                 <h2 class="title"><a
                                         href="{{ route('front.cs_details', $casestudy->id) }}">{{ $casestudy->name }}
                                     </a></h2>
