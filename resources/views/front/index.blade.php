@@ -550,7 +550,7 @@
                                                 class="fas fa-user"></i> by: {{ $casestudy->name }}</a></span>
                                     <span><a href="{{ route('front.cs_details', $casestudy->id) }}"><i
                                                 class="fas fa-tags"></i>
-                                           
+
                                         </a></span>
                                 </div>
                                 <h2 class="title"><a
@@ -564,7 +564,7 @@
                                     </div>
                                     <div class="read-more">
                                         <a
-                                            href="{{ route('front.blog_details', $casestudy->id) }}">{{ __('Read More') }}</a>
+                                            href="{{ route('front.cs_details', $casestudy->id) }}">{{ __('Read More') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -573,7 +573,7 @@
                 @endforeach
             </div>
             <div class="read_more_button_margin">
-                <a href="{{ route('front.blog') }}" class="button-1">Read More</a>
+                <a href="{{ route('front.cs_details' , $casestudy->id) }}" class="button-1">Read More</a>
             </div>
         </div>
     </section>
