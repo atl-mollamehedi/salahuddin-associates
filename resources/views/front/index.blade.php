@@ -545,14 +545,7 @@
                                 </a>
                             </div>
                             <div class="content">
-                                <div class="meta">
-                                    <span><a href="{{ route('front.cs_details', $casestudy->id) }}"><i
-                                                class="fas fa-user"></i> by: {{ $casestudy->name }}</a></span>
-                                    <span><a href="{{ route('front.cs_details', $casestudy->id) }}"><i
-                                                class="fas fa-tags"></i>
-
-                                        </a></span>
-                                </div>
+                                
                                 <h2 class="title"><a
                                         href="{{ route('front.cs_details', $casestudy->id) }}">{{ $casestudy->name }}
                                     </a></h2>
